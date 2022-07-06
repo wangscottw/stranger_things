@@ -39,4 +39,7 @@ export async function loginPerson(username, password) {
   localStorage.setItem("token", token);
   const tokenFromStorage = localStorage.getItem("token");
   console.log(result);
+  console.log(tokenFromStorage);
+  return tokenFromStorage
 }
+
