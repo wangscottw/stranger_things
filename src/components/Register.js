@@ -1,23 +1,18 @@
 import React, {useState} from 'react'
-import { loginPerson, registerPerson } from '../api'
+import { registerPerson } from '../api'
 
-const Main =() => {
+const Register =() => {
     
     const [username, setUsername] = useState ('')
     const [password, setPassword] = useState ('')
 
 async function handleSubmit(event) {
     event.preventDefault()
-    // const backFromApi = await registerPerson(username, password)
-    const loginSuccess = await loginPerson(username, password)
+    const backFromApi = await registerPerson(username, password)
 }
 
-    return (
-    
-
-
-
-    <>
+    return (<>
+    <div>Register</div>
     <form onSubmit={handleSubmit}>
         <label>
             username
@@ -45,8 +40,7 @@ async function handleSubmit(event) {
         <button type='submit'>Login</button>
 
         </form>
-    </>
-)
+    </>)
 }
 
-export default Main
+export default Register

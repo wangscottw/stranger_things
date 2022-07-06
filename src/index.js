@@ -7,16 +7,15 @@ import {
     Link,
 } from "react-router-dom";
 
-import { App, Header, Main } from './components'
+import { App, Header } from './components'
 
 
 const root = ReactDOM.createRoot(document.getElementById('app'))
 root.render(
     <BrowserRouter>
 
-<App/>
-<Header/>
-<Main/>
+        <Header />
+        <App />
     
     </BrowserRouter>
 );
