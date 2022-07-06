@@ -5,6 +5,10 @@ const Main =() => {
     const [username, setUsername] = useState ('')
     const [password, setPassword] = useState ('')
 
+async function handleSubmit(event) {
+    event.preventDefault()
+    registerPerson(event)
+}
 
     return (
     
@@ -12,6 +16,7 @@ const Main =() => {
 
 
     <>
+    <form onSubmit={handleSubmit}>
         <label>
             username
             <input
@@ -36,6 +41,8 @@ const Main =() => {
             />
         </label>
         <button type='submit'>Login</button>
+
+        </form>
     </>
 )
 }
