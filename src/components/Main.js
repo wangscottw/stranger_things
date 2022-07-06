@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { loginPerson, registerPerson } from '../api'
 
 const Main =() => {
     
@@ -7,7 +8,8 @@ const Main =() => {
 
 async function handleSubmit(event) {
     event.preventDefault()
-    registerPerson(event)
+    // const backFromApi = await registerPerson(username, password)
+    const loginSuccess = await loginPerson(username, password)
 }
 
     return (
