@@ -32,7 +32,6 @@ export async function loginPerson(username, password) {
     }),
   });
   const result = await response.json();
-  console.log(result)
   const token = result.data.token;
   localStorage.setItem("token", token);
   const tokenFromStorage = localStorage.getItem("token");
@@ -44,4 +43,18 @@ export async function retrievePosts() {
   const result = await response.json()
     return result
   
+}
+
+export async function getProfile (token) {
+  const response = await fetch(`${BASE}${COHORT}/users/me`,
+  {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  })
+  const result = await response.json()
+  const data = result.data
+  console.log(data)
+  return data
 }

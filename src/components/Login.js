@@ -1,16 +1,21 @@
 import React, {useState} from 'react'
 import { loginPerson } from '../api'
+import {
+    Routes,
+    Route,
+    useNavigate,
+    BrowserRouter,
+    Link,
+  } from "react-router-dom";
 import App from './App'
 
-const Login =({setIsLoggedIn}) => {
-    
-    const [username, setUsername] = useState ('')
-    const [password, setPassword] = useState ('')
-
+const Login =({setIsLoggedIn, username, setUsername, password, setPassword}) => {
+    const navigate= useNavigate()
 async function handleSubmit(event) {
     event.preventDefault()
     await loginPerson(username, password)
     setIsLoggedIn(true)
+    navigate('/Profile')
 }
     return (<>
     <div>Login</div>

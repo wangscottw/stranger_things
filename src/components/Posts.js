@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { retrievePosts } from '../api'
 
-const Posts = () => {
+const Posts = ({searchPosts, setSearchPosts}) => {
 const [posts, setPosts] = useState ([])
     useEffect(() => {
         retrievePosts()
@@ -15,6 +15,19 @@ const [posts, setPosts] = useState ([])
     
     return (
         <div>
+            <div>
+                <h1>Posts</h1>
+                    <input 
+                    name='search-posts'
+                    type='text'
+                    value= {searchPosts}
+                    placeholder = 'Search Posts'
+                    onChange = {(event) => {
+                        setSearchPosts(event.target.value)
+                    }}
+                    /> 
+                    <p>(ADD POST)</p>   
+            </div>
             {posts.map(({title, description, price, location, _id, author}) => (
                 <div key={_id} className='posts'>
                     <h2>{title}</h2>
