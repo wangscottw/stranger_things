@@ -58,3 +58,23 @@ export async function getProfile (token) {
   console.log(data)
   return data
 }
+
+export async function editPosts () {
+  const response = await fetch('http://strangers-things.herokuapp.com/api/COHORT-NAME/posts/5e8d1bd48829fb0017d2233b', {
+  method: "PATCH",
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer TOKEN_STRING_HERE'
+  },
+  body: JSON.stringify({
+    post: {
+      title: "My favorite stuffed animal",
+      description: "This is a pooh doll from 1973. It has been carefully taken care of since I first got it.",
+      price: "$480.00",
+      location: "New York, NY",
+      willDeliver: true
+    }
+  })
+})
+console.log(response)
+}
