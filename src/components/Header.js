@@ -4,7 +4,6 @@ import "./Header.css"
 
 
 const Header = ({ isLoggedIn }) => {
-    console.log(isLoggedIn)
 return (
     <div id="nav-bar">
         <h1>Stranger's Things</h1>

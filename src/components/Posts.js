@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { retrievePosts } from '../api'
+import { editPosts, retrievePosts } from '../api'
+import { NavLink } from 'react-router-dom';
 
 const Posts = ({searchPosts, setSearchPosts}) => {
 const [posts, setPosts] = useState ([])
@@ -13,6 +14,13 @@ const [posts, setPosts] = useState ([])
     }, [])
     console.log(posts)
     
+function handleEdit(){
+    let token = localStorage.getItem('token')
+   // const [edit, setEdit] = useState
+    editPosts(token)
+}
+
+
     return (
         <div>
             <div>
@@ -26,7 +34,7 @@ const [posts, setPosts] = useState ([])
                         setSearchPosts(event.target.value)
                     }}
                     /> 
-                    <p>(ADD POST)</p>   
+                    <NavLink to= "/AddPosts">(ADD POST)</NavLink>
             </div>
             {posts.map(({title, description, price, location, _id, author}) => (
                 <div key={_id} className='posts'>
@@ -35,6 +43,8 @@ const [posts, setPosts] = useState ([])
                     <p><b>Price: </b>{price}</p>
                     <h3>{author.username}</h3>
                     <p><b>Location: </b>{location}</p>
+                    {/* <button onSubmit={handleDelete}>Delete</button> */}
+                    <button onClick={handleEdit}>Edit</button>
                 </div>
             ) )}
         </div>

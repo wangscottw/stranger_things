@@ -3,7 +3,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Login, Register, Posts, Home, Profile, Logout, Header } from "./";
+import { Login, Register, Posts, Home, Profile, Logout, Header, AddPosts } from "./";
 
 
 const App = () => {
@@ -21,6 +21,7 @@ const App = () => {
         <Route path="/posts" element={<Posts searchPosts={searchPosts} setSearchPosts={setSearchPosts}/>} />
         <Route path="/profile" element={<Profile />} />
         <Route exact path="/" element={<Home username={username} isLoggedIn={isLoggedIn}/>} />
+        <Route path="/AddPosts" element={<AddPosts />} />
       </Routes>
     </div>
   );
