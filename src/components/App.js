@@ -1,10 +1,7 @@
-import React, {useState, useEffect, Fragment} from "react";
+import React, {useState} from "react";
 import {
   Routes,
   Route,
-  useNavigate,
-  BrowserRouter,
-  Link,
 } from "react-router-dom";
 import { Login, Register, Posts, Home, Profile, Logout, Header } from "./";
 
@@ -19,7 +16,7 @@ const App = () => {
       <Header isLoggedIn={isLoggedIn}/>
       <Routes>       
         <Route path="/logout" element={<Logout setIsLoggedIn={setIsLoggedIn}/>} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>} />
         <Route path="/posts" element={<Posts searchPosts={searchPosts} setSearchPosts={setSearchPosts}/>} />
         <Route path="/profile" element={<Profile />} />

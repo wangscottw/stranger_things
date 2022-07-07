@@ -1,13 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { loginPerson } from '../api'
 import {
-    Routes,
-    Route,
     useNavigate,
-    BrowserRouter,
-    Link,
   } from "react-router-dom";
-import App from './App'
 
 const Login =({setIsLoggedIn, username, setUsername, password, setPassword}) => {
     const navigate= useNavigate()

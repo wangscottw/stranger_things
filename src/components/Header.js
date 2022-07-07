@@ -1,7 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import {tokenFromStorage} from '../api'
-
 import "./Header.css"
 
 
@@ -25,12 +23,6 @@ return (
                     <NavLink to= "/register">Register</NavLink>
                 </>
             }
-            {/* <NavLink to= "/">Home</NavLink>
-            <NavLink to= "/posts">Posts</NavLink>
-            <NavLink to= "/profile">Profile</NavLink>
-            <NavLink to= "/logout">Logout</NavLink>
-            <NavLink to= "/login">Login</NavLink>
-            <NavLink to= "/register">Register</NavLink> */}
     </div>
 )
 }

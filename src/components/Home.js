@@ -1,10 +1,6 @@
 import React from 'react'
 import {
-    Routes,
-    Route,
     useNavigate,
-    BrowserRouter,
-    Link,
   } from "react-router-dom";
 
 const Home = ({username, isLoggedIn}) => {

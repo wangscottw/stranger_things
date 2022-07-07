@@ -1,14 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { registerPerson } from '../api'
 
-const Register =() => {
-    
-    const [username, setUsername] = useState ('')
-    const [password, setPassword] = useState ('')
+const Register =({setUsername, setPassword, username, password}) => {
 
 async function handleSubmit(event) {
     event.preventDefault()
-    const backFromApi = await registerPerson(username, password)
+    await registerPerson(username, password)
 }
 
     return (<>
