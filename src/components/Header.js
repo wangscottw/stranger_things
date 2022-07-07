@@ -1,16 +1,17 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import {tokenFromStorage} from '../api'
 
 import "./Header.css"
 
 
-const Header = ({ userToken, setCurrentUser }) => {
-    console.log(userToken)
+const Header = ({ isLoggedIn }) => {
+    console.log(isLoggedIn)
 return (
     <div id="nav-bar">
         <h1>Stranger's Things</h1>
             {
-                !userToken ?
+                isLoggedIn ?
                 <>
                     <NavLink to= "/">Home</NavLink>
                     <NavLink to= "/posts">Posts</NavLink>

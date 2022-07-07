@@ -32,6 +32,7 @@ export async function loginPerson(username, password) {
     }),
   });
   const result = await response.json();
+  console.log(result)
   const token = result.data.token;
   localStorage.setItem("token", token);
   const tokenFromStorage = localStorage.getItem("token");
@@ -39,11 +40,8 @@ export async function loginPerson(username, password) {
 }
 
 export async function retrievePosts() {
-  await fetch(`${BASE}${COHORT}/posts`)
-  .then(response => response.json())
-  .then(result => {
-    console.log(result.data.posts[0].active);
-  })
-  .catch(console.error);
-  return result
+  const response = await fetch(`${BASE}${COHORT}/posts`)
+  const result = await response.json()
+    return result
+  
 }
