@@ -59,7 +59,7 @@ export async function getProfile (token) {
   return data
 }
 
-export async function editPosts (token, titleAdd, descAdd, priceAdd, ) {
+export async function editPosts (token, titleAdd, descAdd, priceAdd, willDeliver, postId) {
   const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
   method: "PATCH",
   headers: {
@@ -68,11 +68,11 @@ export async function editPosts (token, titleAdd, descAdd, priceAdd, ) {
   },
   body: JSON.stringify({
     post: {
-      title: "My favorite stuffed animal",
-      description: "This is a pooh doll from 1973. It has been carefully taken care of since I first got it.",
-      price: "$480.00",
-      location: "New York, NY",
-      willDeliver: true
+      title: titleAdd,
+      description: descAdd,
+      price: priceAdd,
+      location: "Somewhere over the rainbow",
+      willDeliver: willDeliver
     }
   })
 })

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { editPosts, retrievePosts } from '../api'
 import { NavLink } from 'react-router-dom';
+import EditUserPosts from './EditUserPosts';
 
-const Posts = ({searchPosts, setSearchPosts}) => {
+const Posts = ({searchPosts, setSearchPosts, titleAdd, setTitleAdd, descAdd, setDescAdd, priceAdd, setPriceAdd, locationAdd, setLocationAdd, wTD, setWTD}) => {
 const [posts, setPosts] = useState ([])
     useEffect(() => {
         retrievePosts()
@@ -36,7 +37,6 @@ function handleEdit(){
                     <NavLink to= "/AddPosts">(ADD POST)</NavLink>
             </div>
             {posts.map(({title, description, price, location, _id, author, willDeliver}) => (
-                
                 <div key={_id} className='posts'>
                     <h2>{title}</h2>
                     <p>{description}</p>
@@ -44,6 +44,7 @@ function handleEdit(){
                     <h3>{author.username}</h3>
                     <p><b>Location: </b>{location}</p>
                     <p><b>Willing to Deliver? { willDeliver ? "Yes" : "No" }</b></p>
+                    <EditUserPosts _id={_id} titleAdd={titleAdd} setTitleAdd={setTitleAdd} descAdd={descAdd} setDescAdd={setDescAdd} priceAdd={priceAdd} setPriceAdd={setPriceAdd} locationAdd={locationAdd} setLocationAdd={setLocationAdd} wTD={wTD} setWTD={setWTD}/>
                     {/* <button onSubmit={handleDelete}>Delete</button> */}
                     <button onClick={handleEdit}>Edit</button>
                 </div>

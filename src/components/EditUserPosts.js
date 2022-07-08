@@ -11,13 +11,21 @@ const EditUserPosts = ({
   locationAdd,
   setLocationAdd,
   wTD,
-  postId,
+  setWTD,
+  _id,
 }) => {
+
   function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    editPosts(token, titleAdd, descAdd, priceAdd, wTD === "checked", postId);
+    editPosts(token, titleAdd, descAdd, priceAdd, wTD === "checked", _id);
   }
+
+  function handleChange(event) {
+    event.preventDefault();
+    setWTD((wTD === "checked") ? "unchecked" : "checked");
+  }
+
   return (
     <>
       <div id="RegisterBoxCenter">
@@ -30,9 +38,9 @@ const EditUserPosts = ({
               <input
                 id="Title"
                 placeholder="Title"
-                value={titleInput}
+                value={titleAdd}
                 onChange={(event) => {
-                  setTitleInput(event.target.value);
+                    setTitleAdd(event.target.value);
                 }}
               />
             </div>
@@ -40,9 +48,9 @@ const EditUserPosts = ({
               <input
                 id="Description"
                 placeholder="Description"
-                value={descriptionInput}
+                value={descAdd}
                 onChange={(event) => {
-                  setDescriptionInput(event.target.value);
+                    setDescAdd(event.target.value);
                 }}
               />
             </div>
@@ -50,9 +58,19 @@ const EditUserPosts = ({
               <input
                 id="Price"
                 placeholder="Price"
-                value={priceInput}
+                value={priceAdd}
                 onChange={(event) => {
-                  setPriceInput(event.target.value);
+                    setPriceAdd(event.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <input
+                id="Location"
+                placeholder="Location"
+                value={locationAdd}
+                onChange={(event) => {
+                    setLocationAdd(event.target.value);
                 }}
               />
             </div>

@@ -57,7 +57,20 @@ const App = () => {
         <Route
           path="/posts"
           element={
-            <Posts searchPosts={searchPosts} setSearchPosts={setSearchPosts} />
+            <Posts
+              searchPosts={searchPosts}
+              setSearchPosts={setSearchPosts}
+              titleAdd={titleAdd}
+              setTitleAdd={setTitleAdd}
+              descAdd={descAdd}
+              setDescAdd={setDescAdd}
+              priceAdd={priceAdd}
+              setPriceAdd={setPriceAdd}
+              locationAdd={locationAdd}
+              setLocationAdd={setLocationAdd}
+              wTD={wTD}
+              setWTD={setWTD}
+            />
           }
         />
         <Route path="/profile" element={<Profile />} />

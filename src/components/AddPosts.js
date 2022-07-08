@@ -8,8 +8,9 @@ const AddPosts = ({
   setDescAdd,
   priceAdd,
   setPriceAdd,
+  setWTD,
+  wTD
 }) => {
-  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
