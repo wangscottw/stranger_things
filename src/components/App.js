@@ -9,6 +9,7 @@ import {
   Logout,
   Header,
   AddPosts,
+  EditUserPosts,
 } from "./";
 
 const App = () => {
@@ -19,6 +20,8 @@ const App = () => {
   const [titleAdd, setTitleAdd] = useState("");
   const [descAdd, setDescAdd] = useState("");
   const [priceAdd, setPriceAdd] = useState("");
+  const [locationAdd, setLocationAdd] = useState("");
+  const [wTD, setWTD] = useState("unchecked");
 
   return (
     <div>
@@ -73,6 +76,25 @@ const App = () => {
               setDescAdd={setDescAdd}
               priceAdd={priceAdd}
               setPriceAdd={setPriceAdd}
+              wTD={wTD}
+              setWTD={setWTD}
+            />
+          }
+        />
+        <Route
+          path="/EditUserPosts"
+          element={
+            <EditUserPosts
+              titleAdd={titleAdd}
+              setTitleAdd={setTitleAdd}
+              descAdd={descAdd}
+              setDescAdd={setDescAdd}
+              priceAdd={priceAdd}
+              setPriceAdd={setPriceAdd}
+              locationAdd={locationAdd}
+              setLocationAdd={setLocationAdd}
+              wTD={wTD}
+              setWTD={setWTD}
             />
           }
         />

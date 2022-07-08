@@ -1,3 +1,4 @@
+export {default as EditUserPosts} from './EditUserPosts'
 export {default as App} from './App'
 export {default as Header} from  './Header'
 export {default as Login} from './Login'

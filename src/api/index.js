@@ -59,8 +59,8 @@ export async function getProfile (token) {
   return data
 }
 
-export async function editPosts (token) {
-  const response = await fetch(`${BASE}${COHORT}/posts/5e8d1bd48829fb0017d2233b`, {
+export async function editPosts (token, titleAdd, descAdd, priceAdd, ) {
+  const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
   method: "PATCH",
   headers: {
     'Content-Type': 'application/json',
@@ -77,7 +77,6 @@ export async function editPosts (token) {
   })
 })
 const result = await response.json()
-console.log(result)
 }
 
 export async function addPostings (token, titleAdd, descAdd, priceAdd, willDeliver) {
