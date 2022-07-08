@@ -4,9 +4,24 @@ import { NavLink } from 'react-router-dom';
 import EditUserPosts from './EditUserPosts';
 import DeleteUserPosts from './DeleteUserPosts';
 import Messages from './Messages'
+import {
+    useNavigate,
+  } from "react-router-dom";
 
-const Posts = ({searchPosts, setSearchPosts, titleAdd, setTitleAdd, descAdd, setDescAdd, priceAdd, setPriceAdd, locationAdd, setLocationAdd, wTD, setWTD, messageContent, setMessageContent}) => {
-const [posts, setPosts] = useState ([])
+
+const Posts = ({isLoggedIn, searchPosts, setSearchPosts, titleAdd, setTitleAdd, descAdd, setDescAdd, priceAdd, setPriceAdd, locationAdd, setLocationAdd, wTD, setWTD, messageContent, setMessageContent}) => {
+    const navigate = useNavigate()
+    const [posts, setPosts] = useState ([])
+    const [currentUser, setCurrentUser] = useState(null)
+
+    useEffect (() => {
+        if (isLoggedIn) {
+        setCurrentUser(localStorage.getItem('username'))
+        } else {
+            setCurrentUser(null)
+        }
+    }, [isLoggedIn])
+
     useEffect(() => {
         retrievePosts()
     
@@ -15,18 +30,20 @@ const [posts, setPosts] = useState ([])
         })
         .catch ((error) => {});
     }, [])
-    console.log(posts)
     
-function handleEdit(){
-    let token = localStorage.getItem('token')
-    editPosts(token)
-}
+// function handleEdit(){
+//     let token = localStorage.getItem('token')
+//     editPosts(token)
+// }
 
-function handleDelete(){
-    let token = localStorage.getItem('token')
-    deletePosts(token)
-}
+// function handleDelete(){
+//     let token = localStorage.getItem('token')
+//     deletePosts(token)
+// }
 
+function handleIndividualPost() {
+    navigate('/IndividualPost')
+}
 
     return (
         <div>
@@ -43,7 +60,8 @@ function handleDelete(){
                     /> 
                     <NavLink to= "/AddPosts">(ADD POST)</NavLink>
             </div>
-            {posts.map(({title, description, price, location, _id, author, willDeliver}) => (
+            {posts.map(({title, description, price, location, _id, author, willDeliver}) => {
+                return (
                 <div key={_id} className='posts'>
                     <h2>{title}</h2>
                     <p>{description}</p>
@@ -51,11 +69,15 @@ function handleDelete(){
                     <h3>{author.username}</h3>
                     <p><b>Location: </b>{location}</p>
                     <p><b>Willing to Deliver? { willDeliver ? "Yes" : "No" }</b></p>
-                    <EditUserPosts _id={_id} titleAdd={titleAdd} setTitleAdd={setTitleAdd} descAdd={descAdd} setDescAdd={setDescAdd} priceAdd={priceAdd} setPriceAdd={setPriceAdd} locationAdd={locationAdd} setLocationAdd={setLocationAdd} wTD={wTD} setWTD={setWTD}/>
-                    <DeleteUserPosts _id={_id}/>
+                    {/* <EditUserPosts _id={_id} titleAdd={titleAdd} setTitleAdd={setTitleAdd} descAdd={descAdd} setDescAdd={setDescAdd} priceAdd={priceAdd} setPriceAdd={setPriceAdd} locationAdd={locationAdd} setLocationAdd={setLocationAdd} wTD={wTD} setWTD={setWTD}/>
+                    <DeleteUserPosts _id={_id}/> */}
                     <Messages _id={_id} messageContent={messageContent} setMessageContent={setMessageContent}/>
+                    { currentUser === author.username ?
+                    <button onClick={handleIndividualPost}>Manage Post</button> :
+                    null
+                    }
                 </div>
-            ) )}
+            )} )}
         </div>
     )
 }

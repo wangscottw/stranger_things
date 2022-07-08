@@ -6,7 +6,7 @@ import {
 
 const Login =({setIsLoggedIn, username, setUsername, password, setPassword}) => {
     const navigate= useNavigate()
-    async function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault()
     await loginPerson(username, password)
     setIsLoggedIn(true)

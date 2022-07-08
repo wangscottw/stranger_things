@@ -15,6 +15,9 @@ export async function registerPerson(username, password) {
     }),
   });
   const result = await response.json();
+  const token = result.data.token;
+  localStorage.setItem("token", token);
+  localStorage.setItem("username", username)
   return result
 }
 
@@ -32,8 +35,10 @@ export async function loginPerson(username, password) {
     }),
   });
   const result = await response.json();
+  console.log(result)
   const token = result.data.token;
   localStorage.setItem("token", token);
+  localStorage.setItem("username", username)
   const tokenFromStorage = localStorage.getItem("token");
   return tokenFromStorage
 }
@@ -41,6 +46,7 @@ export async function loginPerson(username, password) {
 export async function retrievePosts() {
   const response = await fetch(`${BASE}${COHORT}/posts`)
   const result = await response.json()
+    console.log(result.data.posts[69].author.username)
     return result
   
 }
@@ -55,7 +61,7 @@ export async function getProfile (token) {
   })
   const result = await response.json()
   const data = result.data
-  console.log(data)
+  console.log(data.username)
   return data
 }
 
@@ -108,7 +114,6 @@ export async function deletePosts (token, postId) {
   },
 })
 const result = await response.json()
-console.log(result)
 }
 
 export async function processMessages (token, postId, messageContent) {
@@ -125,5 +130,4 @@ export async function processMessages (token, postId, messageContent) {
     })
   })
   const result = await response.json()
-  console.log(result)
 }

@@ -9,10 +9,14 @@ const Logout = ({setIsLoggedIn}) => {
     function handleUserLogout(){
         setIsLoggedIn(false)
        localStorage.removeItem("token");
+       localStorage.removeItem("username");
        navigate('/')
     }
+
 return (
-    <button onClick={handleUserLogout}>Logout</button>
+    <>
+        <button onClick={handleUserLogout}>Logout</button>
+    </>
 )
 }
 

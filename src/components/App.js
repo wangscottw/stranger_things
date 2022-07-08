@@ -12,6 +12,7 @@ import {
   EditUserPosts,
   DeleteUserPosts,
   Messages,
+  IndividualPost,
 } from "./";
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
   const [priceAdd, setPriceAdd] = useState("");
   const [locationAdd, setLocationAdd] = useState("");
   const [wTD, setWTD] = useState("unchecked");
-  const [messageContent, setMessageContent] = useState('');
+  const [messageContent, setMessageContent] = useState("");
 
   return (
     <div>
@@ -61,6 +62,7 @@ const App = () => {
           path="/posts"
           element={
             <Posts
+              isLoggedIn={isLoggedIn}
               searchPosts={searchPosts}
               setSearchPosts={setSearchPosts}
               titleAdd={titleAdd}
@@ -72,8 +74,8 @@ const App = () => {
               locationAdd={locationAdd}
               setLocationAdd={setLocationAdd}
               wTD={wTD}
-              setWTD={setWTD} 
-              messageContent={messageContent} 
+              setWTD={setWTD}
+              messageContent={messageContent}
               setMessageContent={setMessageContent}
             />
           }
@@ -117,7 +119,23 @@ const App = () => {
           }
         />
         <Route path="/DeleteUserPosts" element={<DeleteUserPosts />} />
-        <Route path="/Messages" element={<Messages messageContent={messageContent} setMessageContent={setMessageContent}/>} />
+        <Route
+          path="/Messages"
+          element={
+            <Messages
+              messageContent={messageContent}
+              setMessageContent={setMessageContent}
+            />
+          }
+        />
+        <Route
+          path='/IndividualPost'
+          element={
+            <IndividualPost
+
+            />
+          }
+        />
       </Routes>
     </div>
   );
