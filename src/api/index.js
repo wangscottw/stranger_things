@@ -97,3 +97,33 @@ export async function addPostings (token, titleAdd, descAdd, priceAdd, willDeliv
 })
 const result= await response.json()
 }
+
+
+export async function deletePosts (token, postId) {
+  const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
+  method: "DELETE",
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  },
+})
+const result = await response.json()
+console.log(result)
+}
+
+export async function processMessages (token, postId, messageContent) {
+  const response = await fetch(`${BASE}${COHORT}/posts/${postId}/messages`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      message: {
+        content: messageContent
+      }
+    })
+  })
+  const result = await response.json()
+  console.log(result)
+}

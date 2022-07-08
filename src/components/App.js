@@ -10,6 +10,8 @@ import {
   Header,
   AddPosts,
   EditUserPosts,
+  DeleteUserPosts,
+  Messages,
 } from "./";
 
 const App = () => {
@@ -22,6 +24,7 @@ const App = () => {
   const [priceAdd, setPriceAdd] = useState("");
   const [locationAdd, setLocationAdd] = useState("");
   const [wTD, setWTD] = useState("unchecked");
+  const [messageContent, setMessageContent] = useState('');
 
   return (
     <div>
@@ -69,7 +72,9 @@ const App = () => {
               locationAdd={locationAdd}
               setLocationAdd={setLocationAdd}
               wTD={wTD}
-              setWTD={setWTD}
+              setWTD={setWTD} 
+              messageContent={messageContent} 
+              setMessageContent={setMessageContent}
             />
           }
         />
@@ -111,6 +116,8 @@ const App = () => {
             />
           }
         />
+        <Route path="/DeleteUserPosts" element={<DeleteUserPosts />} />
+        <Route path="/Messages" element={<Messages messageContent={messageContent} setMessageContent={setMessageContent}/>} />
       </Routes>
     </div>
   );

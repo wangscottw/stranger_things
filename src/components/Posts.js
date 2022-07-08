@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
-import { editPosts, retrievePosts } from '../api'
+import { deletePosts, editPosts, retrievePosts } from '../api'
 import { NavLink } from 'react-router-dom';
 import EditUserPosts from './EditUserPosts';
+import DeleteUserPosts from './DeleteUserPosts';
+import Messages from './Messages'
 
-const Posts = ({searchPosts, setSearchPosts, titleAdd, setTitleAdd, descAdd, setDescAdd, priceAdd, setPriceAdd, locationAdd, setLocationAdd, wTD, setWTD}) => {
+const Posts = ({searchPosts, setSearchPosts, titleAdd, setTitleAdd, descAdd, setDescAdd, priceAdd, setPriceAdd, locationAdd, setLocationAdd, wTD, setWTD, messageContent, setMessageContent}) => {
 const [posts, setPosts] = useState ([])
     useEffect(() => {
         retrievePosts()
@@ -18,6 +20,11 @@ const [posts, setPosts] = useState ([])
 function handleEdit(){
     let token = localStorage.getItem('token')
     editPosts(token)
+}
+
+function handleDelete(){
+    let token = localStorage.getItem('token')
+    deletePosts(token)
 }
 
 
@@ -45,8 +52,8 @@ function handleEdit(){
                     <p><b>Location: </b>{location}</p>
                     <p><b>Willing to Deliver? { willDeliver ? "Yes" : "No" }</b></p>
                     <EditUserPosts _id={_id} titleAdd={titleAdd} setTitleAdd={setTitleAdd} descAdd={descAdd} setDescAdd={setDescAdd} priceAdd={priceAdd} setPriceAdd={setPriceAdd} locationAdd={locationAdd} setLocationAdd={setLocationAdd} wTD={wTD} setWTD={setWTD}/>
-                    {/* <button onSubmit={handleDelete}>Delete</button> */}
-                    <button onClick={handleEdit}>Edit</button>
+                    <DeleteUserPosts _id={_id}/>
+                    <Messages _id={_id} messageContent={messageContent} setMessageContent={setMessageContent}/>
                 </div>
             ) )}
         </div>
