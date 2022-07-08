@@ -46,7 +46,6 @@ export async function loginPerson(username, password) {
 export async function retrievePosts() {
   const response = await fetch(`${BASE}${COHORT}/posts`)
   const result = await response.json()
-    console.log(result.data.posts[69].author.username)
     return result
   
 }
@@ -130,4 +129,5 @@ export async function processMessages (token, postId, messageContent) {
     })
   })
   const result = await response.json()
+  console.log(result)
 }

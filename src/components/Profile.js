@@ -12,12 +12,19 @@ const Profile = (props) => {
         }
         getMyInfo()
     }, [])
-    return (
-        <div className='box' key={myInfo._id}>
-            <h3>{myInfo.username}</h3>
-            <p><b></b></p>
-            <p><b></b></p>
+    console.log(myInfo.posts)
 
+    const postMap = myInfo.posts.map((post, idx) => {
+        return (<div></div>)
+    })
+    return (
+        <div>
+            {/* {myInfo.posts.map(({title, _id, messages}) => {
+                return (
+                <div key={_id} className='posts'>
+                    <h2>{title}</h2>
+                </div>
+            )} )} */}
         </div>
     )
 }
