@@ -4,9 +4,12 @@ import {
   } from "react-router-dom";
 
 const Home = ({username, isLoggedIn}) => {
-    const navigate= useNavigate()
+    let navigate= useNavigate()
     function handleSubmitProfile(){
         navigate('/Profile')
+    }
+    function handleSubmitLogin(){
+        navigate('/Login')
     }
 return (
     
@@ -19,7 +22,7 @@ return (
                 <button onClick={handleSubmitProfile}>VIEW PROFILE</button>
                 </>
                 :
-                <button>LOGIN</button>
+                <button onClick={handleSubmitLogin}>LOGIN</button>
             }
         </>
     

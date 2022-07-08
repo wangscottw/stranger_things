@@ -80,7 +80,7 @@ const result = await response.json()
 console.log(result)
 }
 
-export async function addPostings (token) {
+export async function addPostings (token, titleAdd, descAdd, priceAdd, willDeliver) {
   const response = await fetch(`${BASE}${COHORT}/posts`, {
   method: "POST",
   headers: {
@@ -89,10 +89,10 @@ export async function addPostings (token) {
   },
   body: JSON.stringify({
     post: {
-      title: "My favorite stuffed animal",
-      description: "This is a pooh doll from 1973. It has been carefully taken care of since I first got it.",
-      price: "$480.00",
-      willDeliver: true
+      title: titleAdd,
+      description: descAdd,
+      price: priceAdd,
+      willDeliver: willDeliver
     }
   })
 })

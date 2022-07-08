@@ -6,7 +6,7 @@ import {
 
 const Login =({setIsLoggedIn, username, setUsername, password, setPassword}) => {
     const navigate= useNavigate()
-async function handleSubmit(event) {
+    async function handleSubmit(event) {
     event.preventDefault()
     await loginPerson(username, password)
     setIsLoggedIn(true)
@@ -16,11 +16,12 @@ async function handleSubmit(event) {
     <div>Login</div>
     <form onSubmit={handleSubmit}>
         <label>
-            username
+            Username
             <input
             name='username'
             type='text'
             value={username}
+            placeholder='Enter Username Here'
             onChange={(event)=>{
                 setUsername(event.target.value)
             }}
@@ -33,6 +34,7 @@ async function handleSubmit(event) {
             name='password'
             type='text'
             value={password}
+            placeholder='Enter Password Here'
             onChange={(event)=>{
                 setPassword(event.target.value)
             }}
