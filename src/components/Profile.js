@@ -20,9 +20,13 @@ const Profile = (props) => {
 
   return (
     <>
-    <div>
-      <h1>Welcome {username}</h1>
-      <h2>Messages to me:</h2>
+    <div className="messagesToMe">
+      
+      <div className="usernameDiv">
+        <h1 className="username">Welcome {username}</h1>
+      </div>
+      
+      <h1 className="messages">Messages to me:</h1>
       {myInfo.posts
         ? myInfo.posts.map(({ title, _id, messages }) => {
             return (
@@ -30,11 +34,11 @@ const Profile = (props) => {
                 <div>
                   {messages.map(({ content, fromUser }) => {
                     return (
-                      <>
+                      <div className="toMessages">
                         <h3>From: {fromUser.username}</h3>
                         <h3>{content}</h3>
-                        <h3><NavLink to= "/"><b>(VIEW MY POST)</b> {title}</NavLink></h3>
-                      </>
+                        <h3><NavLink to= "/" className="navlink"><b>(VIEW MY POST)</b> {title}</NavLink></h3>
+                      </div>
                     );
                   })}
                 </div>
@@ -43,15 +47,16 @@ const Profile = (props) => {
           })
         : null}
     </div>
-    <div>
-          <h1>Messages from me:</h1>
+    <div className="messagesFromMe">
+          <h1 className="messages" id="messagesFM">Messages from me:</h1>
           {myInfo.messages
           ? myInfo.messages.map(({content, post}) => {
-            return (<>
+            return (
+            <div className="fromMessages">
               <h3>(From Me)</h3>
               <h3>{content}</h3>
-              <p> <NavLink to= "/"><b>(Message again)</b> {post.title}</NavLink></p>
-            </>
+              <h3> <NavLink to= "/" className="navlink"><b>(Message again)</b> {post.title}</NavLink></h3>
+            </div>
             )
           })
         : null}

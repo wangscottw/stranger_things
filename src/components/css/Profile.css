@@ -1,0 +1,40 @@
+.messagesToMe {
+    background-color: grey;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.messagesFromMe {
+    background-color: grey;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.toMessages, .fromMessages {
+    background-color: darkgrey;
+    border: 22px solid  grey
+}
+
+h1 {
+    text-align: left;
+}
+
+.username {
+    text-align: center;
+    font-size: 45px;
+    background-color: white;
+    padding-bottom: 35px;
+    padding-top: 10px;
+}
+
+.messages{
+    padding-left: 20px;
+}
+
+#messagesFM {
+    padding-top: 30px;
+}
+
+.navlink{
+    color: rgb(167, 114, 16);
+}
