@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { processMessages } from "../api";
 
-const Messages = ({_id, messageContent, setMessageContent}) => {
+const Messages = ({element_id}) => {
+    const [messageContent, setMessageContent] = useState('')
     function handleSubmit(event){
         event.preventDefault()
         const token = localStorage.getItem('token')
-        processMessages(token, _id, messageContent)
+        processMessages(token, element_id, messageContent)
     }
     return (
         <form onSubmit={handleSubmit}>

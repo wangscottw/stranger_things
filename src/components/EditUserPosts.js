@@ -12,13 +12,13 @@ const EditUserPosts = ({
   setLocationAdd,
   wTD,
   setWTD,
-  _id,
+  element_id,
 }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    editPosts(token, titleAdd, descAdd, priceAdd, wTD === "checked", _id);
+    editPosts(token, titleAdd, descAdd, priceAdd, wTD === "checked", element_id);
   }
 
   function handleChange(event) {

@@ -5,6 +5,7 @@ import EditUserPosts from "./EditUserPosts";
 import DeleteUserPosts from "./DeleteUserPosts";
 import Messages from "./Messages";
 import { useNavigate } from "react-router-dom";
+import PostsAndFilter from "./PostsAndFilter"
 
 const Posts = ({
   isLoggedIn,
@@ -20,8 +21,6 @@ const Posts = ({
   setLocationAdd,
   wTD,
   setWTD,
-  messageContent,
-  setMessageContent,
 }) => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
@@ -45,7 +44,6 @@ const Posts = ({
   }, []);
 
   function searchItems(searchValue) {
-    // setSearchPosts(searchValue)
     const data = posts.filter((item) => {
       return item.title.toLowerCase().includes(searchValue.toLowerCase())
         ? true
@@ -60,7 +58,7 @@ useEffect (() => {
 }, [searchPosts])
 
   function handleIndividualPost() {
-    navigate("/IndividualPost");
+    navigate("/PostsAndFilter");
   }
   console.log(filteredData)
   return (
@@ -73,7 +71,6 @@ useEffect (() => {
           value={searchPosts}
           placeholder="Search Posts"
           onChange={(event) => {
-            // setSearchPosts(event.target.value)
             setSearchPosts(event.target.value);
           }}
         />
@@ -82,103 +79,17 @@ useEffect (() => {
       {
       filteredData.length > 0 ?
       filteredData.map(
-        ({ title, description, price, location, _id, author, willDeliver }) => {
+        (element) => {
           return (
-            <div key={_id} className="posts">
-              <h2>{title}</h2>
-              <p>{description}</p>
-              <p>
-                <b>Price: </b>
-                {price}
-              </p>
-              <h3>{author.username}</h3>
-              <p>
-                <b>Location: </b>
-                {location}
-              </p>
-              <p>
-                <b>Willing to Deliver? {willDeliver ? "Yes" : "No"}</b>
-              </p>
-              {isLoggedIn ? (
-                <>
-                  <Messages
-                    _id={_id}
-                    messageContent={messageContent}
-                    setMessageContent={setMessageContent}
-                  />
-                </>
-              ) : null}
-              {currentUser === author.username && isLoggedIn ? (
-                <>
-                  <button onClick={handleIndividualPost}>Manage Post</button>
-                  <EditUserPosts
-                    _id={_id}
-                    titleAdd={titleAdd}
-                    setTitleAdd={setTitleAdd}
-                    descAdd={descAdd}
-                    setDescAdd={setDescAdd}
-                    priceAdd={priceAdd}
-                    setPriceAdd={setPriceAdd}
-                    locationAdd={locationAdd}
-                    setLocationAdd={setLocationAdd}
-                    wTD={wTD}
-                    setWTD={setWTD}
-                  />
-                  <DeleteUserPosts _id={_id} />
-                </>
-              ) : null}
-            </div>
+            <PostsAndFilter key={element._id} element={element} isLoggedIn={isLoggedIn} currentUser={currentUser} handleIndividualPost={handleIndividualPost} titleAdd={titleAdd} setTitleAdd={setTitleAdd} descAdd={descAdd} setDescAdd={setDescAdd} priceAdd={priceAdd} setPriceAdd={setPriceAdd} locationAdd={locationAdd} setLocationAdd={setLocationAdd} wTD={wTD} setWTD={setWTD}/>
           );
         }
       )
       :
       posts.map(
-        ({ title, description, price, location, _id, author, willDeliver }) => {
+        (element) => {
           return (
-            <div key={_id} className="posts">
-              <h2>{title}</h2>
-              <p>{description}</p>
-              <p>
-                <b>Price: </b>
-                {price}
-              </p>
-              <h3>{author.username}</h3>
-              <p>
-                <b>Location: </b>
-                {location}
-              </p>
-              <p>
-                <b>Willing to Deliver? {willDeliver ? "Yes" : "No"}</b>
-              </p>
-              {isLoggedIn ? (
-                <>
-                  <Messages
-                    _id={_id}
-                    messageContent={messageContent}
-                    setMessageContent={setMessageContent}
-                  />
-                </>
-              ) : null}
-              {currentUser === author.username && isLoggedIn ? (
-                <>
-                  <button onClick={handleIndividualPost}>Manage Post</button>
-                  <EditUserPosts
-                    _id={_id}
-                    titleAdd={titleAdd}
-                    setTitleAdd={setTitleAdd}
-                    descAdd={descAdd}
-                    setDescAdd={setDescAdd}
-                    priceAdd={priceAdd}
-                    setPriceAdd={setPriceAdd}
-                    locationAdd={locationAdd}
-                    setLocationAdd={setLocationAdd}
-                    wTD={wTD}
-                    setWTD={setWTD}
-                  />
-                  <DeleteUserPosts _id={_id} />
-                </>
-              ) : null}
-            </div>
+            <PostsAndFilter key={element._id} element={element} isLoggedIn={isLoggedIn} currentUser={currentUser} handleIndividualPost={handleIndividualPost} titleAdd={titleAdd} setTitleAdd={setTitleAdd} descAdd={descAdd} setDescAdd={setDescAdd} priceAdd={priceAdd} setPriceAdd={setPriceAdd} locationAdd={locationAdd} setLocationAdd={setLocationAdd} wTD={wTD} setWTD={setWTD}/>
           );
         }
       )}

@@ -25,7 +25,6 @@ const App = () => {
   const [priceAdd, setPriceAdd] = useState("");
   const [locationAdd, setLocationAdd] = useState("");
   const [wTD, setWTD] = useState("unchecked");
-  const [messageContent, setMessageContent] = useState("");
 
   return (
     <div>
@@ -75,8 +74,6 @@ const App = () => {
               setLocationAdd={setLocationAdd}
               wTD={wTD}
               setWTD={setWTD}
-              messageContent={messageContent}
-              setMessageContent={setMessageContent}
             />
           }
         />
@@ -119,15 +116,6 @@ const App = () => {
           }
         />
         <Route path="/DeleteUserPosts" element={<DeleteUserPosts />} />
-        <Route
-          path="/Messages"
-          element={
-            <Messages
-              messageContent={messageContent}
-              setMessageContent={setMessageContent}
-            />
-          }
-        />
         <Route
           path='/IndividualPost'
           element={

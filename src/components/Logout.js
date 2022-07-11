@@ -14,7 +14,7 @@ const Logout = ({setIsLoggedIn}) => {
     }
 
 function handleUserHome () {
-    const navigate= useNavigate()
+    const navigate = useNavigate()
     navigate('/')
 }
 

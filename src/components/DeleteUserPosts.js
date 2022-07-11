@@ -1,7 +1,7 @@
 import React from 'react'
 import { deletePosts } from "../api";
 
-const DeleteUserPosts = ({_id}) => {
+const DeleteUserPosts = ({element_id}) => {
     function handleSubmit(event){
         event.preventDefault()
         const token = localStorage.getItem('token')
