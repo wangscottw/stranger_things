@@ -5,7 +5,7 @@ const DeleteUserPosts = ({element_id}) => {
     function handleSubmit(event){
         event.preventDefault()
         const token = localStorage.getItem('token')
-        deletePosts(token, _id)
+        deletePosts(token, element_id)
     }
     return (
         <form onSubmit={handleSubmit}>

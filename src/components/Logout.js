@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+    NavLink,
     useNavigate,
   } from "react-router-dom";
 
@@ -29,9 +30,9 @@ return (
     <>
         <h1>Are you sure you want to log out of:</h1>
         <h2>{username}?</h2>
+        <NavLink to = '/'>Return Home</NavLink>
+        <NavLink to = '/Posts'>Return to Posts</NavLink>
         <button onClick={handleUserLogout}>Logout</button>
-        <button onClick={handleUserHome}>Return Home</button>
-        <button onClick={handleUserPosts}>Return to Posts</button>
     </>
 )
 }
