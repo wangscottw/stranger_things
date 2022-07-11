@@ -22,28 +22,27 @@ const PostsAndFilter = ({
 }) => {
   return (
     <div className="posts">
-      <h2>{element.title}</h2>
-      <p>{element.description}</p>
+      <h2 id="eachPostTitle">{element.title}</h2>
+      <p><b>Description: </b>{element.description}</p>
       <p>
         <b>Price: </b>
         {element.price}
       </p>
-      <h3>{element.author.username}</h3>
+      <p><b>User: </b>{element.author.username}</p>
       <p>
         <b>Location: </b>
         {element.location}
       </p>
       <p>
-        <b>Willing to Deliver? {element.willDeliver ? "Yes" : "No"}</b>
+        <b>Willing to Deliver? </b>{element.willDeliver ? "Yes" : "No"}
       </p>
-      {isLoggedIn ? (
+      {isLoggedIn && currentUser !== element.author.username ? (
         <>
           <Messages element_id={element._id} />
         </>
       ) : null}
       {currentUser === element.author.username && isLoggedIn ? (
-        <>
-          <button onClick={handleIndividualPost}>Manage Post</button>
+        <div className="editAndDelete">
           <EditUserPosts
             element_id={element._id}
             titleAdd={titleAdd}
@@ -58,7 +57,7 @@ const PostsAndFilter = ({
             setWTD={setWTD}
           />
           <DeleteUserPosts element_id={element._id} />
-        </>
+          </div>
       ) : null}
     </div>
   );

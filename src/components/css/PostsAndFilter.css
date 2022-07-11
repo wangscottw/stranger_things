@@ -1,0 +1,22 @@
+.posts{
+    background-color: darkgrey;
+    border: 22px solid grey;
+    padding-left: 20px;
+    padding-bottom: 35px;
+    padding-right: 20px;
+}
+
+#eachPostTitle{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 32px;
+}
+
+.editAndDelete{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-top: 5px solid grey;
+
+}

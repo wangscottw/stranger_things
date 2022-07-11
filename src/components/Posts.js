@@ -46,7 +46,11 @@ const Posts = ({
 
   function searchItems(searchValue) {
     const data = posts.filter((item) => {
-      return item.title.toLowerCase().includes(searchValue.toLowerCase())
+      return item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+      item.description.toLowerCase().includes(searchValue.toLowerCase()) ||
+      item.author.username.toLowerCase().includes(searchValue.toLowerCase()) ||
+      item.price.toLowerCase().includes(searchValue.toLowerCase()) ||
+      item.location.toLowerCase().includes(searchValue.toLowerCase())
         ? true
         : false;
     });
@@ -63,10 +67,10 @@ useEffect (() => {
   }
   console.log(filteredData)
   return (
-    <div>
-      <div>
-        <h1>Posts</h1>
-        <input
+    <div className="postDiv">
+      <div className="searchPosts">
+        <h1 id="postTitle">Posts</h1>
+        <input id="searchPostInput"
           name="search-posts"
           type="text"
           value={searchPosts}
@@ -75,7 +79,7 @@ useEffect (() => {
             setSearchPosts(event.target.value);
           }}
         />
-        {isLoggedIn ? <NavLink to="/AddPosts">(ADD POST)</NavLink> : null}
+        {isLoggedIn ? <h1 id="navLink"><NavLink to="/AddPosts" id="addPostsLink">ADD POST</NavLink></h1> : null}
       </div>
       {
       filteredData.length > 0 ?

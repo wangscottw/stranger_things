@@ -10,11 +10,11 @@ const Messages = ({element_id}) => {
         processMessages(token, element_id, messageContent)
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Send a message
-                <input
-                placeholder='message'
+        <form onSubmit={handleSubmit} id='formInput'>
+            <label> 
+            <b>Send a message </b>
+                <input id='messageInput'
+                placeholder='Type Message Here'
                 type='text'
                 value={messageContent}
                 onChange={(event) => {
@@ -22,7 +22,7 @@ const Messages = ({element_id}) => {
                 }}
                 />
             </label>
-            <button type="Submit">Message</button>
+            <button type="Submit" id='messageButton'><h3>Message</h3></button>
         </form>
     )
 }

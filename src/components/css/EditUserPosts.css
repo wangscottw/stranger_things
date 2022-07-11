@@ -1,0 +1,18 @@
+.editPostHeading {
+    text-align: center;
+}
+
+.inputEdit{
+    margin-bottom: 6px;
+    height: 23px;
+    width: 350px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.wtdCheckBox{
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

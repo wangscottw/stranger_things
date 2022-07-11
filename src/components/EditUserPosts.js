@@ -32,13 +32,13 @@ const EditUserPosts = ({
       <div id="RegisterBoxCenter">
         <div id="RegisterBox">
           <div>
-            <h1>Edit New Post</h1>
+            <h1 className="editPostHeading">Edit Post</h1>
           </div>
           <form onSubmit={handleSubmit}>
             <div>
-              <input
-                id="Title"
-                placeholder="Title"
+              <input className="inputEdit"
+                id="Edit"
+                placeholder="Edit Title"
                 value={titleAdd}
                 onChange={(event) => {
                     setTitleAdd(event.target.value);
@@ -46,9 +46,9 @@ const EditUserPosts = ({
               />
             </div>
             <div>
-              <input
+              <input className="inputEdit"
                 id="Description"
-                placeholder="Description"
+                placeholder="Edit Description"
                 value={descAdd}
                 onChange={(event) => {
                     setDescAdd(event.target.value);
@@ -56,9 +56,9 @@ const EditUserPosts = ({
               />
             </div>
             <div>
-              <input
+              <input className="inputEdit"
                 id="Price"
-                placeholder="Price"
+                placeholder="Edit Price"
                 value={priceAdd}
                 onChange={(event) => {
                     setPriceAdd(event.target.value);
@@ -66,16 +66,16 @@ const EditUserPosts = ({
               />
             </div>
             <div>
-              <input
-                id="Location"
-                placeholder="Location"
+              <input className="inputEdit"
+                id="Location" 
+                placeholder="Edit Location"
                 value={locationAdd}
                 onChange={(event) => {
                     setLocationAdd(event.target.value);
                 }}
               />
             </div>
-            <div>
+            <div className="wtdCheckBox">
               <label htmlFor="willDeliver">
                 <input
                   id="willDeliver"
@@ -86,7 +86,7 @@ const EditUserPosts = ({
                 Willing to Deliver?
               </label>
             </div>
-            <button type="Submit">SAVE</button>
+            <button type="Submit">SAVE EDIT</button>
           </form>
         </div>
       </div>
