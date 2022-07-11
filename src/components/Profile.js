@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getProfile } from "../api";
 import { NavLink } from 'react-router-dom';
+import "./css/Profile.css"
 
 const username = localStorage.getItem('username')
 

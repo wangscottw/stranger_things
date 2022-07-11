@@ -1,5 +1,6 @@
 import React from 'react'
 import { deletePosts } from "../api";
+import "./css/DeleteUserPosts.css"
 
 const DeleteUserPosts = ({element_id}) => {
     function handleSubmit(event){

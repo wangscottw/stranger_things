@@ -3,6 +3,7 @@ import {
     NavLink,
     useNavigate,
   } from "react-router-dom";
+  import "./css/Logout.css"
 
 
 const Logout = ({setIsLoggedIn}) => {

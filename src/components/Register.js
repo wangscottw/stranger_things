@@ -1,5 +1,6 @@
 import React from 'react'
 import { registerPerson } from '../api'
+import "./css/Register.css"
 
 const Register =({setUsername, setPassword, username, password}) => {
 

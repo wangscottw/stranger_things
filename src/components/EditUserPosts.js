@@ -1,5 +1,6 @@
 import React from "react";
 import { editPosts } from "../api";
+import "./css/EditUserPosts.css"
 
 const EditUserPosts = ({
   titleAdd,

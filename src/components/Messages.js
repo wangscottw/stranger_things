@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { processMessages } from "../api";
+import "./css/Messages.css"
 
 const Messages = ({element_id}) => {
     const [messageContent, setMessageContent] = useState('')

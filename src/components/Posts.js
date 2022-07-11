@@ -6,6 +6,7 @@ import DeleteUserPosts from "./DeleteUserPosts";
 import Messages from "./Messages";
 import { useNavigate } from "react-router-dom";
 import PostsAndFilter from "./PostsAndFilter"
+import "./css/Posts.css"
 
 const Posts = ({
   isLoggedIn,

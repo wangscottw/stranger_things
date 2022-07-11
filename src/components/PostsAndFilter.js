@@ -2,6 +2,7 @@ import React from "react";
 import EditUserPosts from "./EditUserPosts";
 import DeleteUserPosts from "./DeleteUserPosts";
 import Messages from "./Messages";
+import "./css/PostsAndFilter.css"
 
 const PostsAndFilter = ({
   element,

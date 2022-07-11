@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import "./Header.css"
+import "./css/Header.css"
 
 
 const Header = ({ isLoggedIn }) => {
@@ -10,17 +10,17 @@ return (
             {
                 isLoggedIn ?
                 <>
-                    <NavLink to= "/">Home</NavLink>
-                    <NavLink to= "/posts">Posts</NavLink>
-                    <NavLink to= "/profile">Profile</NavLink>
-                    <NavLink to= "/logout">Logout</NavLink>
+                    <NavLink to= "/" className='navBarLinks'>Home</NavLink>
+                    <NavLink to= "/posts" className='navBarLinks'>Posts</NavLink>
+                    <NavLink to= "/profile" className='navBarLinks'>Profile</NavLink>
+                    <NavLink to= "/logout" className='navBarLinks'>Logout</NavLink>
                 </>
                 :
                 <>
-                    <NavLink to= "/">Home</NavLink>
-                    <NavLink to= "/posts">Posts</NavLink>
-                    <NavLink to= "/login">Login</NavLink>
-                    <NavLink to= "/register">Register</NavLink>
+                    <NavLink to= "/" className='navBarLinks'>Home</NavLink>
+                    <NavLink to= "/posts" className='navBarLinks'>Posts</NavLink>
+                    <NavLink to= "/login" className='navBarLinks'>Login</NavLink>
+                    <NavLink to= "/register" className='navBarLinks'>Register</NavLink>
                 </>
             }
     </div>

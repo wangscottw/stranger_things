@@ -15,6 +15,8 @@ import {
   IndividualPost,
 } from "./";
 
+import "./css/App.css"
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
