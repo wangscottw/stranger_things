@@ -17,8 +17,8 @@ export async function registerPerson(username, password) {
   const result = await response.json();
   const token = result.data.token;
   localStorage.setItem("token", token);
-  localStorage.setItem("username", username)
-  return result
+  localStorage.setItem("username", username);
+  return result;
 }
 
 export async function loginPerson(username, password) {
@@ -37,95 +37,107 @@ export async function loginPerson(username, password) {
   const result = await response.json();
   const token = result.data.token;
   localStorage.setItem("token", token);
-  localStorage.setItem("username", username)
+  localStorage.setItem("username", username);
   const tokenFromStorage = localStorage.getItem("token");
-  return tokenFromStorage
+  return tokenFromStorage;
 }
 
 export async function retrievePosts() {
-  const response = await fetch(`${BASE}${COHORT}/posts`)
-  const result = await response.json()
-    return result
-  
+  const response = await fetch(`${BASE}${COHORT}/posts`);
+  const result = await response.json();
+  return result;
 }
 
-export async function getProfile (token) {
-  const response = await fetch(`${BASE}${COHORT}/users/me`,
-  {
+export async function getProfile(token) {
+  const response = await fetch(`${BASE}${COHORT}/users/me`, {
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
-  })
-  const result = await response.json()
-  const data = result.data
-  return data
+  });
+  const result = await response.json();
+  const data = result.data;
+  return data;
 }
 
-export async function editPosts (token, titleAdd, descAdd, priceAdd, willDeliver, locationAdd, postId) {
+export async function editPosts(
+  token,
+  titleAdd,
+  descAdd,
+  priceAdd,
+  willDeliver,
+  locationAdd,
+  postId
+) {
   const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
-  method: "PATCH",
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
-  },
-  body: JSON.stringify({
-    post: {
-      title: titleAdd,
-      description: descAdd,
-      price: priceAdd,
-      location: locationAdd,
-      willDeliver: willDeliver
-    }
-  })
-})
-await response.json()
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      post: {
+        title: titleAdd,
+        description: descAdd,
+        price: priceAdd,
+        location: locationAdd,
+        willDeliver: willDeliver,
+      },
+    }),
+  });
+  await response.json();
 }
 
-export async function addPostings (token, titleAdd, descAdd, priceAdd, locationAdd, willDeliver) {
+export async function addPostings(
+  token,
+  titleAdd,
+  descAdd,
+  priceAdd,
+  locationAdd,
+  willDeliver
+) {
   const response = await fetch(`${BASE}${COHORT}/posts`, {
-  method: "POST",
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
-  },
-  body: JSON.stringify({
-    post: {
-      title: titleAdd,
-      description: descAdd,
-      price: priceAdd,
-      location: locationAdd,
-      willDeliver: willDeliver
-    }
-  })
-})
-await response.json()
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      post: {
+        title: titleAdd,
+        description: descAdd,
+        price: priceAdd,
+        location: locationAdd,
+        willDeliver: willDeliver,
+      },
+    }),
+  });
+  await response.json();
 }
 
-
-export async function deletePosts (token, postId) {
+export async function deletePosts(token, postId) {
   const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
-  method: "DELETE",
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
-  },
-})
-await response.json()
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  await response.json();
 }
 
-export async function processMessages (token, postId, messageContent) {
+export async function processMessages(token, postId, messageContent) {
   const response = await fetch(`${BASE}${COHORT}/posts/${postId}/messages`, {
     method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       message: {
-        content: messageContent
-      }
-    })
-  })
-  await response.json()
+        content: messageContent,
+      },
+    }),
+  });
+  await response.json();
 }
