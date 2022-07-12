@@ -12,7 +12,7 @@ const EditUserPosts = ({ element_id, posts, setPosts }) => {
   async function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    await editPosts(
+    const newPost = await editPosts(
       token,
       titleAdd,
       descAdd,
@@ -21,15 +21,19 @@ const EditUserPosts = ({ element_id, posts, setPosts }) => {
       locationAdd,
       element_id
     );
-    const allPosts = await retrievePosts();
-    setPosts(allPosts.data.posts);
+    const newObj = posts.filter((postObj) => {
+    if (postObj._id === newPost.data.post._id){
+      return false 
+      } else {return true}
+      
+    })
+    setPosts([newPost.data.post, ...newObj])
   }
 
   function handleChange(event) {
     event.preventDefault();
     setWTD(wTD === "checked" ? "unchecked" : "checked");
   }
-
   return (
     <>
       <div id="RegisterBoxCenter">

@@ -21,7 +21,6 @@ const App = () => {
   const [password, setPassword] = useState("");
   const [searchPosts, setSearchPosts] = useState("");
   const [posts, setPosts] = useState([]);
-
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} />

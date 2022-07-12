@@ -15,7 +15,6 @@ const Posts = ({
   const navigate = useNavigate();
   const [filteredData, setFilteredData] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-
   useEffect(() => {
     if (isLoggedIn) {
       setCurrentUser(localStorage.getItem("username"));
@@ -35,19 +34,22 @@ const Posts = ({
   }, []);
 
   function searchItems(searchValue) {
-    const data = posts.filter((item) => {
-      return item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchValue.toLowerCase()) ||
-        item.author.username
-          .toLowerCase()
-          .includes(searchValue.toLowerCase()) ||
-        item.price.toLowerCase().includes(searchValue.toLowerCase()) ||
-        item.location.toLowerCase().includes(searchValue.toLowerCase())
-        ? true
-        : false;
-    });
+    if (searchValue.length) {
 
-    data.length > 0 ? setFilteredData(data) : setFilteredData([]);
+      const data = posts.filter((item) => {
+        return item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.description.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.author.username
+            .toLowerCase()
+            .includes(searchValue.toLowerCase()) || 
+          item.price.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.location.toLowerCase().includes(searchValue.toLowerCase())
+          ? true
+          : false;
+      });
+  
+      data.length > 0 ? setFilteredData(data) : setFilteredData([]);
+    }
   }
 
   useEffect(() => {
@@ -88,8 +90,8 @@ const Posts = ({
                 isLoggedIn={isLoggedIn}
                 currentUser={currentUser}
                 handleIndividualPost={handleIndividualPost}
-                posts={posts}
-                setPosts={setPosts}
+                posts={filteredData}
+                setPosts={setFilteredData}
               />
             );
           })

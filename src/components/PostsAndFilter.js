@@ -46,7 +46,7 @@ const PostsAndFilter = ({
             posts={posts}
             setPosts={setPosts}
           />
-          <DeleteUserPosts element_id={element._id} />
+          <DeleteUserPosts element_id={element._id} posts={posts}/>
         </div>
       ) : null}
     </div>

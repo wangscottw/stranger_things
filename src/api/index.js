@@ -38,14 +38,12 @@ export async function loginPerson(username, password) {
   const token = result.data.token;
   localStorage.setItem("token", token);
   localStorage.setItem("username", username);
-  const tokenFromStorage = localStorage.getItem("token");
-  return tokenFromStorage;
+  return token;
 }
 
 export async function retrievePosts() {
   const response = await fetch(`${BASE}${COHORT}/posts/`);
   const result = await response.json();
-  console.log(result);
   return result;
 }
 
@@ -87,7 +85,6 @@ export async function editPosts(
     }),
   });
   const result = await response.json();
-  console.log(result);
   return result;
 }
 

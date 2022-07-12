@@ -11,10 +11,10 @@ const AddPosts = () => {
   const [wTD, setWTD] = useState("unchecked");
   const navigate = useNavigate();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    addPostings(
+    await addPostings(
       token,
       titleAdd,
       descAdd,
