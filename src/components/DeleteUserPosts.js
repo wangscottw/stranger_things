@@ -1,21 +1,18 @@
 import React from "react";
-import { deletePosts } from "../api";
+import { deletePosts, retrievePosts } from "../api";
 import "./css/DeleteUserPosts.css";
 
-const DeleteUserPosts = ({ element_id, posts }) => {
+// This component is specific to deleting a post. We have it re-render the page after a post has been deleted without needing to refresh the page.
+
+const DeleteUserPosts = ({ element_id, setPosts }) => {
   async function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    const deletePost = await deletePosts(token, element_id);
-    console.log(deletePost)
-    const newObj = posts.filter((postObj) => {
-    if (postObj._id === deletePost.data.post._id){
-      return false 
-      } else {return true}
-      
-    })
-    setPosts([...newObj])
+    await deletePosts(token, element_id);
+    const allPosts = await retrievePosts();
+    setPosts(allPosts.data.posts);
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <button type="Submit" id="deleteButton">

@@ -3,6 +3,8 @@ import { loginPerson } from "../api";
 import { useNavigate, NavLink } from "react-router-dom";
 import "./css/Login.css";
 
+// Login button that updates a state for being logged in. Also sets a token and a username into the local storage for ease of access to that information for other components to call on when a user is logged in.
+
 const Login = ({
   setIsLoggedIn,
   username,
@@ -17,6 +19,9 @@ const Login = ({
     setIsLoggedIn(true);
     navigate("/Profile");
   }
+
+// Simple page with a log in button and links to register if a user has not set up an account.
+
   return (
     <>
       <div className="loginTitle">Login to Stranger's Things</div>

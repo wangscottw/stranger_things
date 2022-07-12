@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./css/Header.css";
 
+// This is where all of our NavLinks reside in our nav-bar at the top of the screen. They route to the specific URL page that contains the information they are looking for.
+
 const Header = ({ isLoggedIn }) => {
   return (
     <div id="nav-bar">

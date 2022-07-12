@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { processMessages } from "../api";
 import "./css/Messages.css";
 
+// Allows for users to send messages to other users to inquire more about their product. Messages will show up in the profile section (more about this feature in the profile.js)
+
 const Messages = ({ element_id }) => {
   const [messageContent, setMessageContent] = useState("");
   function handleSubmit(event) {
@@ -9,6 +11,9 @@ const Messages = ({ element_id }) => {
     const token = localStorage.getItem("token");
     processMessages(token, element_id, messageContent);
   }
+
+// This component is attached to each post when you are logged in and will not show up if you are not logged in. Takes whatever you type into the input and sends that string to the user who's post you are sending to.
+
   return (
     <form onSubmit={handleSubmit} id="formInput">
       <label>

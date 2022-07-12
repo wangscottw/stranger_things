@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/Home.css";
 
+// Simple home page to redirect users to log in or to go to their profile page in the event they are already logged in.
+
 const Home = ({ username, isLoggedIn }) => {
   let navigate = useNavigate();
   function handleSubmitProfile() {

@@ -3,6 +3,8 @@ import { addPostings } from "../api";
 import { useNavigate } from "react-router-dom";
 import "./css/AddPosts.css";
 
+// This code is here to add a post to the "directory" of posts.
+
 const AddPosts = () => {
   const [titleAdd, setTitleAdd] = useState("");
   const [descAdd, setDescAdd] = useState("");
@@ -10,6 +12,8 @@ const AddPosts = () => {
   const [locationAdd, setLocationAdd] = useState("");
   const [wTD, setWTD] = useState("unchecked");
   const navigate = useNavigate();
+
+// Handle submit is used to execute functions that pertain to adding a post. We have it to where you navigate to the posts page after you have made the add post API call (addPostings function)
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -24,10 +28,15 @@ const AddPosts = () => {
     );
     navigate("/posts");
   }
+
+// handleCB is used as a helper function to determine if the checkbox (CB) is checked, and if it is, it determines whether or not the individual that is creating the post is willing to deliver or not.
+
   function handleCB(event) {
     event.preventDefault();
     setWTD(wTD === "checked" ? "unchecked" : "checked");
   }
+
+// Returning divs that have variable text in them to display the information we are looking for.
 
   return (
     <>

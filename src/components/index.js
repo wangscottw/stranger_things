@@ -1,3 +1,5 @@
+// This connects the entire document together and allows us to return information back when a certain route/component is called in a different document.
+
 export { default as EditUserPosts } from "./EditUserPosts";
 export { default as App } from "./App";
 export { default as Header } from "./Header";

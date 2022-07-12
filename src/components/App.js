@@ -15,12 +15,17 @@ import {
 
 import "./css/App.css";
 
+// Main hub for all prop threading. Some props were specific to their files but the props that needed to be at the top level to use in all documents are stored here.
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [searchPosts, setSearchPosts] = useState("");
   const [posts, setPosts] = useState([]);
+
+// Returning routes to get to thread the props down to different levels of our website.
+
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} />

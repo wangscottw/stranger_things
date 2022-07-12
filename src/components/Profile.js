@@ -5,6 +5,8 @@ import "./css/Profile.css";
 
 const username = localStorage.getItem("username");
 
+// Allows users who are logged in to see what messages they have. Built in functionality (work in progress) to send a message back to those users who have already sent you a message. This route is only available when you login.
+
 const Profile = () => {
   let token = "";
   const [myInfo, setMyInfo] = useState({});
@@ -16,6 +18,8 @@ const Profile = () => {
     }
     getMyInfo();
   }, []);
+
+// Shows messages to be viewed that were from the user and to the user.
 
   return (
     <>

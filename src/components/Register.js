@@ -3,6 +3,8 @@ import { registerPerson } from "../api";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./css/Register.css";
 
+// Allows a user to register so they can sign into the API. This route is only viewable when you are not signed in.
+
 const Register = ({ setUsername, setPassword, username, password }) => {
   const navigate = useNavigate();
   async function handleSubmit(event) {
@@ -10,6 +12,8 @@ const Register = ({ setUsername, setPassword, username, password }) => {
     await registerPerson(username, password);
     navigate("/Posts");
   }
+
+// Simple page that allows you to go to the login page if you already have an account. Will only create a new account with a unique username.
 
   return (
     <>
