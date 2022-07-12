@@ -1,19 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { addPostings } from "../api";
+import { useNavigate } from "react-router-dom";
 import "./css/AddPosts.css";
 
-const AddPosts = ({
-  titleAdd,
-  setTitleAdd,
-  descAdd,
-  setDescAdd,
-  priceAdd,
-  setPriceAdd,
-  locationAdd,
-  setLocationAdd,
-  setWTD,
-  wTD,
-}) => {
+const AddPosts = () => {
+  const [titleAdd, setTitleAdd] = useState("");
+  const [descAdd, setDescAdd] = useState("");
+  const [priceAdd, setPriceAdd] = useState("");
+  const [locationAdd, setLocationAdd] = useState("");
+  const [wTD, setWTD] = useState("unchecked");
+  const navigate = useNavigate();
+
   function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
@@ -25,6 +22,7 @@ const AddPosts = ({
       locationAdd,
       wTD === "checked"
     );
+    navigate("/posts");
   }
   function handleCB(event) {
     event.preventDefault();

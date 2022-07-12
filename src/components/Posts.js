@@ -9,19 +9,10 @@ const Posts = ({
   isLoggedIn,
   searchPosts,
   setSearchPosts,
-  titleAdd,
-  setTitleAdd,
-  descAdd,
-  setDescAdd,
-  priceAdd,
-  setPriceAdd,
-  locationAdd,
-  setLocationAdd,
-  wTD,
-  setWTD,
+  posts,
+  setPosts,
 }) => {
   const navigate = useNavigate();
-  const [posts, setPosts] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -97,16 +88,8 @@ const Posts = ({
                 isLoggedIn={isLoggedIn}
                 currentUser={currentUser}
                 handleIndividualPost={handleIndividualPost}
-                titleAdd={titleAdd}
-                setTitleAdd={setTitleAdd}
-                descAdd={descAdd}
-                setDescAdd={setDescAdd}
-                priceAdd={priceAdd}
-                setPriceAdd={setPriceAdd}
-                locationAdd={locationAdd}
-                setLocationAdd={setLocationAdd}
-                wTD={wTD}
-                setWTD={setWTD}
+                posts={posts}
+                setPosts={setPosts}
               />
             );
           })
@@ -118,16 +101,8 @@ const Posts = ({
                 isLoggedIn={isLoggedIn}
                 currentUser={currentUser}
                 handleIndividualPost={handleIndividualPost}
-                titleAdd={titleAdd}
-                setTitleAdd={setTitleAdd}
-                descAdd={descAdd}
-                setDescAdd={setDescAdd}
-                priceAdd={priceAdd}
-                setPriceAdd={setPriceAdd}
-                locationAdd={locationAdd}
-                setLocationAdd={setLocationAdd}
-                wTD={wTD}
-                setWTD={setWTD}
+                posts={posts}
+                setPosts={setPosts}
               />
             );
           })}

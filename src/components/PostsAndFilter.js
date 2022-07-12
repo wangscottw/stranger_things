@@ -8,16 +8,8 @@ const PostsAndFilter = ({
   element,
   currentUser,
   isLoggedIn,
-  titleAdd,
-  setTitleAdd,
-  descAdd,
-  setDescAdd,
-  priceAdd,
-  setPriceAdd,
-  locationAdd,
-  setLocationAdd,
-  wTD,
-  setWTD,
+  posts,
+  setPosts,
 }) => {
   return (
     <div className="posts">
@@ -51,16 +43,8 @@ const PostsAndFilter = ({
         <div className="editAndDelete">
           <EditUserPosts
             element_id={element._id}
-            titleAdd={titleAdd}
-            setTitleAdd={setTitleAdd}
-            descAdd={descAdd}
-            setDescAdd={setDescAdd}
-            priceAdd={priceAdd}
-            setPriceAdd={setPriceAdd}
-            locationAdd={locationAdd}
-            setLocationAdd={setLocationAdd}
-            wTD={wTD}
-            setWTD={setWTD}
+            posts={posts}
+            setPosts={setPosts}
           />
           <DeleteUserPosts element_id={element._id} />
         </div>

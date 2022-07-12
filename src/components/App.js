@@ -20,11 +20,7 @@ const App = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [searchPosts, setSearchPosts] = useState("");
-  const [titleAdd, setTitleAdd] = useState("");
-  const [descAdd, setDescAdd] = useState("");
-  const [priceAdd, setPriceAdd] = useState("");
-  const [locationAdd, setLocationAdd] = useState("");
-  const [wTD, setWTD] = useState("unchecked");
+  const [posts, setPosts] = useState([]);
 
   return (
     <div>
@@ -64,16 +60,8 @@ const App = () => {
               isLoggedIn={isLoggedIn}
               searchPosts={searchPosts}
               setSearchPosts={setSearchPosts}
-              titleAdd={titleAdd}
-              setTitleAdd={setTitleAdd}
-              descAdd={descAdd}
-              setDescAdd={setDescAdd}
-              priceAdd={priceAdd}
-              setPriceAdd={setPriceAdd}
-              locationAdd={locationAdd}
-              setLocationAdd={setLocationAdd}
-              wTD={wTD}
-              setWTD={setWTD}
+              posts={posts}
+              setPosts={setPosts}
             />
           }
         />
@@ -83,40 +71,8 @@ const App = () => {
           path="/"
           element={<Home username={username} isLoggedIn={isLoggedIn} />}
         />
-        <Route
-          path="/AddPosts"
-          element={
-            <AddPosts
-              titleAdd={titleAdd}
-              setTitleAdd={setTitleAdd}
-              descAdd={descAdd}
-              setDescAdd={setDescAdd}
-              priceAdd={priceAdd}
-              setPriceAdd={setPriceAdd}
-              locationAdd={locationAdd}
-              setLocationAdd={setLocationAdd}
-              wTD={wTD}
-              setWTD={setWTD}
-            />
-          }
-        />
-        <Route
-          path="/EditUserPosts"
-          element={
-            <EditUserPosts
-              titleAdd={titleAdd}
-              setTitleAdd={setTitleAdd}
-              descAdd={descAdd}
-              setDescAdd={setDescAdd}
-              priceAdd={priceAdd}
-              setPriceAdd={setPriceAdd}
-              locationAdd={locationAdd}
-              setLocationAdd={setLocationAdd}
-              wTD={wTD}
-              setWTD={setWTD}
-            />
-          }
-        />
+        <Route path="/AddPosts" element={<AddPosts />} />
+        <Route path="/EditUserPosts" element={<EditUserPosts />} />
         <Route path="/DeleteUserPosts" element={<DeleteUserPosts />} />
       </Routes>
     </div>

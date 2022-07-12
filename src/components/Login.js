@@ -42,7 +42,7 @@ const Login = ({
           <input
             className="passInput"
             name="password"
-            type="text"
+            type="password"
             value={password}
             placeholder="Enter Password Here"
             onChange={(event) => {

@@ -43,8 +43,9 @@ export async function loginPerson(username, password) {
 }
 
 export async function retrievePosts() {
-  const response = await fetch(`${BASE}${COHORT}/posts`);
+  const response = await fetch(`${BASE}${COHORT}/posts/`);
   const result = await response.json();
+  console.log(result);
   return result;
 }
 
@@ -85,7 +86,9 @@ export async function editPosts(
       },
     }),
   });
-  await response.json();
+  const result = await response.json();
+  console.log(result);
+  return result;
 }
 
 export async function addPostings(

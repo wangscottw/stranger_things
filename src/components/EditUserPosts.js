@@ -1,24 +1,18 @@
-import React, { useEffect } from "react";
-import { editPosts } from "../api";
+import React, { useState, useEffect } from "react";
+import { editPosts, retrievePosts } from "../api";
 import "./css/EditUserPosts.css";
 
-const EditUserPosts = ({
-  titleAdd,
-  setTitleAdd,
-  descAdd,
-  setDescAdd,
-  priceAdd,
-  setPriceAdd,
-  locationAdd,
-  setLocationAdd,
-  wTD,
-  setWTD,
-  element_id,
-}) => {
-  function handleSubmit(event) {
+const EditUserPosts = ({ element_id, posts, setPosts }) => {
+  const [titleAdd, setTitleAdd] = useState("");
+  const [descAdd, setDescAdd] = useState("");
+  const [priceAdd, setPriceAdd] = useState("");
+  const [locationAdd, setLocationAdd] = useState("");
+  const [wTD, setWTD] = useState("unchecked");
+
+  async function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    editPosts(
+    await editPosts(
       token,
       titleAdd,
       descAdd,
@@ -27,9 +21,9 @@ const EditUserPosts = ({
       locationAdd,
       element_id
     );
+    const allPosts = await retrievePosts();
+    setPosts(allPosts.data.posts);
   }
-
-  useEffect(() => {});
 
   function handleChange(event) {
     event.preventDefault();
