@@ -64,7 +64,7 @@ export async function getProfile (token) {
   return data
 }
 
-export async function editPosts (token, titleAdd, descAdd, priceAdd, willDeliver, postId) {
+export async function editPosts (token, titleAdd, descAdd, priceAdd, willDeliver, locationAdd, postId) {
   const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
   method: "PATCH",
   headers: {
@@ -76,7 +76,7 @@ export async function editPosts (token, titleAdd, descAdd, priceAdd, willDeliver
       title: titleAdd,
       description: descAdd,
       price: priceAdd,
-      location: "Somewhere over the rainbow",
+      location: locationAdd,
       willDeliver: willDeliver
     }
   })
@@ -84,7 +84,7 @@ export async function editPosts (token, titleAdd, descAdd, priceAdd, willDeliver
 const result = await response.json()
 }
 
-export async function addPostings (token, titleAdd, descAdd, priceAdd, willDeliver) {
+export async function addPostings (token, titleAdd, descAdd, priceAdd, locationAdd, willDeliver) {
   const response = await fetch(`${BASE}${COHORT}/posts`, {
   method: "POST",
   headers: {
@@ -96,6 +96,7 @@ export async function addPostings (token, titleAdd, descAdd, priceAdd, willDeliv
       title: titleAdd,
       description: descAdd,
       price: priceAdd,
+      location: locationAdd,
       willDeliver: willDeliver
     }
   })

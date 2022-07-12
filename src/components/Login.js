@@ -2,6 +2,7 @@ import React from 'react'
 import { loginPerson } from '../api'
 import {
     useNavigate,
+    NavLink
   } from "react-router-dom";
   import "./css/Login.css"
 
@@ -14,11 +15,12 @@ async function handleSubmit(event) {
     navigate('/Profile')
 }
     return (<>
-    <div>Login</div>
+    <div className='loginTitle'>Login to Stranger's Things</div>
     <form onSubmit={handleSubmit}>
-        <label>
+        <label className='userLabel'>
             Username
-            <input
+            <br></br>
+            <input className='userInput'
             name='username'
             type='text'
             value={username}
@@ -28,10 +30,11 @@ async function handleSubmit(event) {
             }}
             />
         </label>
-
-        <label>
+            <br></br>
+        <label className='passLabel'>
             Password
-            <input
+            <br></br>
+            <input className='passInput'
             name='password'
             type='text'
             value={password}
@@ -41,9 +44,10 @@ async function handleSubmit(event) {
             }}
             />
         </label>
-        <button type='submit'>Login</button>
-
+        <br></br>
+        <button type='submit' id='loginButton'>Login</button>
         </form>
+        <div className='registerText'>Don't Have An Account? Register <NavLink to='/Register' className='registerHere'>Here.</NavLink></div>
     </>
 )
 }

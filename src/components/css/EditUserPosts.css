@@ -1,18 +1,59 @@
 .editPostHeading {
-    text-align: center;
+  text-align: center;
 }
 
-.inputEdit{
-    margin-bottom: 6px;
-    height: 23px;
-    width: 350px;
-    padding-left: 10px;
-    padding-right: 10px;
+.inputEdit {
+  margin-bottom: 6px;
+  height: 23px;
+  width: 350px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.wtdCheckBox{
-    text-align: center;
-    font-weight: bold;
-    padding-bottom: 10px;
-    padding-top: 10px;
+.inputDiv {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.wtdCheckBox {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+#saveEdit {
+  background-clip: padding-box;
+  background-color: rgb(172, 31, 31);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+  text-decoration: none;
+  transition: all 250ms;
+  width: 125px;
+  height: 33px;
+  margin-left: 43%;
+}
+
+#saveEdit:hover,
+#saveEdit:focus {
+  background-color: rgb(253, 106, 106);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+}
+
+#saveEdit:hover {
+  transform: translateY(-1px);
+}
+
+#saveEdit:active {
+  background-color: rgb(172, 31, 31);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
 }

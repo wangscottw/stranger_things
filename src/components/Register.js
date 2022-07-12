@@ -1,20 +1,23 @@
 import React from 'react'
 import { registerPerson } from '../api'
+import { NavLink, useNavigate } from 'react-router-dom'
 import "./css/Register.css"
 
 const Register =({setUsername, setPassword, username, password}) => {
-
+const navigate = useNavigate()
 async function handleSubmit(event) {
     event.preventDefault()
     await registerPerson(username, password)
+    navigate('/Posts')
 }
 
     return (<>
-    <div>Register</div>
+    <div className='loginTitle'>Register Your Account</div>
     <form onSubmit={handleSubmit}>
-        <label>
-            username
-            <input
+        <label className='userLabel'>
+            Username
+            <input className='userInput'
+            placeholder='Username'
             name='username'
             type='text'
             value={username}
@@ -24,9 +27,10 @@ async function handleSubmit(event) {
             />
         </label>
 
-        <label>
+        <label className='passLabel'>
             Password
-            <input
+            <input className='passInput'
+            placeholder='Password'
             name='password'
             type='text'
             value={password}
@@ -35,8 +39,8 @@ async function handleSubmit(event) {
             }}
             />
         </label>
-        <button type='submit'>Login</button>
-
+        <button type='submit' id='registerButton'>Register</button>
+        <div className='registerText'>Already Have An Account? Login <NavLink to='/Login' className='loginHere'>Here.</NavLink></div>
         </form>
     </>)
 }

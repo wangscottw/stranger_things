@@ -15,15 +15,15 @@ const Home = ({username, isLoggedIn}) => {
 return (
     
         <>
-            <h1>Welcome to Stranger's Things</h1>
+            <h1 className='welcomeTitle'>Welcome to Stranger's Things</h1>
             {
                isLoggedIn ?
                 <>
-                <h3>Logged in as {username}</h3>
-                <button onClick={handleSubmitProfile}>VIEW PROFILE</button>
+                <h3 className='isLoggedIn'>Logged in as <b className='homeUser'>{username}</b></h3>
+                <button onClick={handleSubmitProfile} className='viewProfile'>VIEW PROFILE</button>
                 </>
                 :
-                <button onClick={handleSubmitLogin}>LOGIN</button>
+                <button onClick={handleSubmitLogin} className='loginHome'>LOGIN</button>
             }
         </>
     

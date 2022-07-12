@@ -16,6 +16,13 @@
   color: white;
 }
 
+.navBarLinks:active {
+  text-decoration: none;
+  padding: 7px;
+  border: white 3px solid;
+  color: white;
+}
+
 .navBarLinks:hover {
   padding: 7px;
   border: none;

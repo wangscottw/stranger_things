@@ -95,6 +95,8 @@ const App = () => {
               setDescAdd={setDescAdd}
               priceAdd={priceAdd}
               setPriceAdd={setPriceAdd}
+              locationAdd={locationAdd}
+              setLocationAdd={setLocationAdd}
               wTD={wTD}
               setWTD={setWTD}
             />

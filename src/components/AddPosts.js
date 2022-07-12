@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { addPostings } from "../api";
-import "./css/AddPosts.css"
+import "./css/AddPosts.css";
 
 const AddPosts = ({
   titleAdd,
@@ -9,14 +9,22 @@ const AddPosts = ({
   setDescAdd,
   priceAdd,
   setPriceAdd,
+  locationAdd,
+  setLocationAdd,
   setWTD,
-  wTD
+  wTD,
 }) => {
-
   function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    addPostings(token, titleAdd, descAdd, priceAdd, wTD === "checked");
+    addPostings(
+      token,
+      titleAdd,
+      descAdd,
+      priceAdd,
+      locationAdd,
+      wTD === "checked"
+    );
   }
   function handleCB(event) {
     event.preventDefault();
@@ -25,50 +33,56 @@ const AddPosts = ({
 
   return (
     <>
+      <div className="titleAdd">Add a Posting</div>
       <form onSubmit={handleSubmit}>
-        <label>
-          Title
-          <input
-            placeholder="Title"
-            type="text"
-            value={titleAdd}
-            onChange={(event) => {
-              setTitleAdd(event.target.value);
-            }}
-          />
-        </label>
-        <label>
-          {" "}
-          Description
-          <input
-            placeholder="Description"
-            type="text"
-            value={descAdd}
-            onChange={(event) => {
-              setDescAdd(event.target.value);
-            }}
-          />
-        </label>
-        <label>
-          {" "}
-          Price
-          <input
-            placeholder="Price"
-            type="text"
-            value={priceAdd}
-            onChange={(event) => {
-              setPriceAdd(event.target.value);
-            }}
-          />
-        </label>
-        <label htmlFor="willDeliver">
+        <div className="inputDiv">
+        <input
+          className="inputTitle"
+          placeholder="Add Title"
+          type="text"
+          value={titleAdd}
+          onChange={(event) => {
+            setTitleAdd(event.target.value);
+          }}
+        />
+
+        <input
+          className="inputDesc"
+          placeholder="Add Description"
+          type="text"
+          value={descAdd}
+          onChange={(event) => {
+            setDescAdd(event.target.value);
+          }}
+        />
+
+        <input
+          className="inputPrice"
+          placeholder="Add Price"
+          type="text"
+          value={priceAdd}
+          onChange={(event) => {
+            setPriceAdd(event.target.value);
+          }}
+        />
+
+        <input
+          className="inputLocation"
+          placeholder="Add Location"
+          type="text"
+          value={locationAdd}
+          onChange={(event) => {
+            setLocationAdd(event.target.value);
+          }}
+        />
+
+        <label htmlFor="willDeliver" id="willDeliver">
           {" "}
           Willing to deliver?
           <input type="checkbox" id="willDeliver" onChange={handleCB} />
         </label>
-        <button type="submit">
-          CREATE
-        </button>
+        </div>
+        <button type="submit" className="createButton">CREATE</button>
       </form>
     </>
   );

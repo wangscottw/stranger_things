@@ -19,7 +19,7 @@ const EditUserPosts = ({
   function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    editPosts(token, titleAdd, descAdd, priceAdd, wTD === "checked", element_id);
+    editPosts(token, titleAdd, descAdd, priceAdd, wTD === "checked", locationAdd, element_id);
   }
 
   function handleChange(event) {
@@ -35,7 +35,7 @@ const EditUserPosts = ({
             <h1 className="editPostHeading">Edit Post</h1>
           </div>
           <form onSubmit={handleSubmit}>
-            <div>
+            <div className="inputDiv">
               <input className="inputEdit"
                 id="Edit"
                 placeholder="Edit Title"
@@ -45,7 +45,7 @@ const EditUserPosts = ({
                 }}
               />
             </div>
-            <div>
+            <div className="inputDiv">
               <input className="inputEdit"
                 id="Description"
                 placeholder="Edit Description"
@@ -55,7 +55,7 @@ const EditUserPosts = ({
                 }}
               />
             </div>
-            <div>
+            <div className="inputDiv">
               <input className="inputEdit"
                 id="Price"
                 placeholder="Edit Price"
@@ -65,7 +65,7 @@ const EditUserPosts = ({
                 }}
               />
             </div>
-            <div>
+            <div className="inputDiv">
               <input className="inputEdit"
                 id="Location" 
                 placeholder="Edit Location"
@@ -86,7 +86,7 @@ const EditUserPosts = ({
                 Willing to Deliver?
               </label>
             </div>
-            <button type="Submit">SAVE EDIT</button>
+            <button type="Submit" id='saveEdit'>SAVE EDIT</button>
           </form>
         </div>
       </div>

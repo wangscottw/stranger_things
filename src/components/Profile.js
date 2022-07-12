@@ -23,7 +23,7 @@ const Profile = (props) => {
     <div className="messagesToMe">
       
       <div className="usernameDiv">
-        <h1 className="username">Welcome {username}</h1>
+        <h1 className="username">Welcome <b className="userName">{username}</b></h1>
       </div>
       
       <h1 className="messages">Messages to me:</h1>

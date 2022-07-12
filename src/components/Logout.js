@@ -29,11 +29,11 @@ const username = localStorage.getItem('username')
 
 return (
     <>
-        <h1>Are you sure you want to log out of:</h1>
-        <h2>{username}?</h2>
-        <NavLink to = '/'>Return Home</NavLink>
-        <NavLink to = '/Posts'>Return to Posts</NavLink>
-        <button onClick={handleUserLogout}>Logout</button>
+        <h1 className='logoutTitle'>Are you sure you want to log out of:</h1>
+        <h2 className='logoutUser'>{username}?</h2>
+        <NavLink to = '/' className='returnHome'>-Return Home-</NavLink>
+        <NavLink to = '/Posts' className='returnPosts'>-Return to Posts-</NavLink>
+        <button onClick={handleUserLogout} className='logoutButton'>Logout</button>
     </>
 )
 }

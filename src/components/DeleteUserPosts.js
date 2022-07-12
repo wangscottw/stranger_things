@@ -10,7 +10,7 @@ const DeleteUserPosts = ({element_id}) => {
     }
     return (
         <form onSubmit={handleSubmit}>
-            <button type="Submit">DELETE</button>
+            <button type="Submit" id='deleteButton'>DELETE</button>
         </form>
     )
 }
