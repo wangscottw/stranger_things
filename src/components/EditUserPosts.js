@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { editPosts } from "../api";
 import "./css/EditUserPosts.css"
 
@@ -21,6 +21,10 @@ const EditUserPosts = ({
     const token = localStorage.getItem("token");
     editPosts(token, titleAdd, descAdd, priceAdd, wTD === "checked", locationAdd, element_id);
   }
+
+  useEffect(() => {
+    
+  })
 
   function handleChange(event) {
     event.preventDefault();

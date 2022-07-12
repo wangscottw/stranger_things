@@ -11,8 +11,6 @@ import {
   AddPosts,
   EditUserPosts,
   DeleteUserPosts,
-  Messages,
-  IndividualPost,
 } from "./";
 
 import "./css/App.css"
@@ -120,15 +118,7 @@ const App = () => {
           }
         />
         <Route path="/DeleteUserPosts" element={<DeleteUserPosts />} />
-        <Route
-          path='/IndividualPost'
-          element={
-            <IndividualPost
-
-            />
-          }
-        />
-      </Routes>
+        </Routes>
     </div>
   );
 };

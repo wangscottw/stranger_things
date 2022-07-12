@@ -22,7 +22,7 @@ const Messages = ({element_id}) => {
                 }}
                 />
             </label>
-            <button type="Submit" id='messageButton'><h3>Message</h3></button>
+            <button type="Submit" id='messageButton'><b>Message</b></button>
         </form>
     )
 }

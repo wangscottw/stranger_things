@@ -15,16 +15,6 @@ const Logout = ({setIsLoggedIn}) => {
        navigate('/')
     }
 
-function handleUserHome () {
-    const navigate = useNavigate()
-    navigate('/')
-}
-
-function handleUserPosts () {
-    const navigate= useNavigate()
-    navigate('/Posts')
-}
-
 const username = localStorage.getItem('username')
 
 return (

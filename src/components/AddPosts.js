@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { addPostings } from "../api";
 import "./css/AddPosts.css";
 
@@ -77,7 +77,6 @@ const AddPosts = ({
         />
 
         <label htmlFor="willDeliver" id="willDeliver">
-          {" "}
           Willing to deliver?
           <input type="checkbox" id="willDeliver" onChange={handleCB} />
         </label>

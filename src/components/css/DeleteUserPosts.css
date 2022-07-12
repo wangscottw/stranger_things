@@ -9,13 +9,15 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 1.25;
-    margin: 0;
+    margin: auto;
     text-decoration: none;
     transition: all 250ms;
     width: 125px;
     height: 33px;
-    margin-left: 43%;
     margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   #deleteButton:hover,

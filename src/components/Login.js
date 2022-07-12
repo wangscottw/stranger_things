@@ -10,7 +10,7 @@ const Login =({setIsLoggedIn, username, setUsername, password, setPassword}) => 
     const navigate= useNavigate()
 async function handleSubmit(event) {
     event.preventDefault()
-    const bob = await loginPerson(username, password)
+    await loginPerson(username, password)
     setIsLoggedIn(true)
     navigate('/Profile')
 }

@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
-import { deletePosts, editPosts, retrievePosts } from "../api";
+import { retrievePosts } from "../api";
 import { NavLink } from "react-router-dom";
-import EditUserPosts from "./EditUserPosts";
-import DeleteUserPosts from "./DeleteUserPosts";
-import Messages from "./Messages";
 import { useNavigate } from "react-router-dom";
 import PostsAndFilter from "./PostsAndFilter"
 import "./css/Posts.css"
@@ -41,7 +38,9 @@ const Posts = ({
       .then((object) => {
         setPosts(object.data.posts);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.error(error)
+      });
   }, []);
 
   function searchItems(searchValue) {
@@ -65,7 +64,6 @@ useEffect (() => {
   function handleIndividualPost() {
     navigate("/PostsAndFilter");
   }
-  console.log(filteredData)
   return (
     <div className="postDiv">
       <div className="searchPosts">

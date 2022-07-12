@@ -1,5 +1,5 @@
 const BASE = "https://strangers-things.herokuapp.com/api/";
-const COHORT = "2206-FTB-ET-WEB-FT-A";
+const COHORT = "2206-FTB-ET-WEB-FT";
 
 export async function registerPerson(username, password) {
   const response = await fetch(`${BASE}${COHORT}/users/register`, {
@@ -35,7 +35,6 @@ export async function loginPerson(username, password) {
     }),
   });
   const result = await response.json();
-  console.log(result)
   const token = result.data.token;
   localStorage.setItem("token", token);
   localStorage.setItem("username", username)
@@ -60,7 +59,6 @@ export async function getProfile (token) {
   })
   const result = await response.json()
   const data = result.data
-  console.log(data.username)
   return data
 }
 
@@ -81,7 +79,7 @@ export async function editPosts (token, titleAdd, descAdd, priceAdd, willDeliver
     }
   })
 })
-const result = await response.json()
+await response.json()
 }
 
 export async function addPostings (token, titleAdd, descAdd, priceAdd, locationAdd, willDeliver) {
@@ -101,7 +99,7 @@ export async function addPostings (token, titleAdd, descAdd, priceAdd, locationA
     }
   })
 })
-const result= await response.json()
+await response.json()
 }
 
 
@@ -113,7 +111,7 @@ export async function deletePosts (token, postId) {
     'Authorization': `Bearer ${token}`
   },
 })
-const result = await response.json()
+await response.json()
 }
 
 export async function processMessages (token, postId, messageContent) {
@@ -129,6 +127,5 @@ export async function processMessages (token, postId, messageContent) {
       }
     })
   })
-  const result = await response.json()
-  console.log(result)
+  await response.json()
 }

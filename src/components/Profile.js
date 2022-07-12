@@ -5,7 +5,7 @@ import "./css/Profile.css"
 
 const username = localStorage.getItem('username')
 
-const Profile = (props) => {
+const Profile = () => {
   let token = "";
   const [myInfo, setMyInfo] = useState({});
   useEffect(() => {
@@ -16,7 +16,6 @@ const Profile = (props) => {
     }
     getMyInfo();
   }, []);
-  console.log(myInfo);
 
   return (
     <>

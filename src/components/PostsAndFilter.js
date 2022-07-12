@@ -7,7 +7,6 @@ import "./css/PostsAndFilter.css";
 const PostsAndFilter = ({
   element,
   currentUser,
-  handleIndividualPost,
   isLoggedIn,
   titleAdd,
   setTitleAdd,
