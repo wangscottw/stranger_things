@@ -1,8 +1,7 @@
-import React from 'react';
-
+import React from "react";
 
 const SinglePostView = () => {
-    // will work on this if time allows
-}
+  // will work on this if time allows
+};
 
-export default SinglePostView
+export default SinglePostView;

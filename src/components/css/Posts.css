@@ -1,37 +1,37 @@
 .postDiv {
-    background-color: grey;
-    padding-bottom: 1px;
+  background-color: grey;
+  padding-bottom: 1px;
 }
 
 .searchPosts {
-    background-color: white;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #postTitle {
-    text-align: center;
-    text-decoration: none;
+  text-align: center;
+  text-decoration: none;
 }
 
-#searchPostInput{
-    width: 300px;
-    height: 27px;
-    padding-left: 10px;
-    padding-right: 10px;
+#searchPostInput {
+  width: 300px;
+  height: 27px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #navLink {
-    font-size: 20px;
-    border: 2px solid black;
-    padding: 7px;
+  font-size: 20px;
+  border: 2px solid black;
+  padding: 7px;
 }
 
-#addPostsLink:visited{
-    color: rgb(172, 31, 31);
+#addPostsLink:visited {
+  color: rgb(172, 31, 31);
 }
 
-#addPostsLink{
-    text-decoration: none;
+#addPostsLink {
+  text-decoration: none;
 }

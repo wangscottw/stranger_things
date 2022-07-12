@@ -13,7 +13,7 @@ import {
   DeleteUserPosts,
 } from "./";
 
-import "./css/App.css"
+import "./css/App.css";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -118,7 +118,7 @@ const App = () => {
           }
         />
         <Route path="/DeleteUserPosts" element={<DeleteUserPosts />} />
-        </Routes>
+      </Routes>
     </div>
   );
 };

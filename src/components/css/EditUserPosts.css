@@ -25,11 +25,12 @@
 #saveEdit {
   background-clip: padding-box;
   background-color: rgb(172, 31, 31);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   color: #fff;
   cursor: pointer;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.25;
@@ -47,7 +48,7 @@
 #saveEdit:focus {
   background-color: rgb(253, 106, 106);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px;
 }
 
 #saveEdit:hover {

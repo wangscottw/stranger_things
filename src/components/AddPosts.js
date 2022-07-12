@@ -36,52 +36,54 @@ const AddPosts = ({
       <div className="titleAdd">Add a Posting</div>
       <form onSubmit={handleSubmit}>
         <div className="inputDiv">
-        <input
-          className="inputTitle"
-          placeholder="Add Title"
-          type="text"
-          value={titleAdd}
-          onChange={(event) => {
-            setTitleAdd(event.target.value);
-          }}
-        />
+          <input
+            className="inputTitle"
+            placeholder="Add Title"
+            type="text"
+            value={titleAdd}
+            onChange={(event) => {
+              setTitleAdd(event.target.value);
+            }}
+          />
 
-        <input
-          className="inputDesc"
-          placeholder="Add Description"
-          type="text"
-          value={descAdd}
-          onChange={(event) => {
-            setDescAdd(event.target.value);
-          }}
-        />
+          <input
+            className="inputDesc"
+            placeholder="Add Description"
+            type="text"
+            value={descAdd}
+            onChange={(event) => {
+              setDescAdd(event.target.value);
+            }}
+          />
 
-        <input
-          className="inputPrice"
-          placeholder="Add Price"
-          type="text"
-          value={priceAdd}
-          onChange={(event) => {
-            setPriceAdd(event.target.value);
-          }}
-        />
+          <input
+            className="inputPrice"
+            placeholder="Add Price"
+            type="text"
+            value={priceAdd}
+            onChange={(event) => {
+              setPriceAdd(event.target.value);
+            }}
+          />
 
-        <input
-          className="inputLocation"
-          placeholder="Add Location"
-          type="text"
-          value={locationAdd}
-          onChange={(event) => {
-            setLocationAdd(event.target.value);
-          }}
-        />
+          <input
+            className="inputLocation"
+            placeholder="Add Location"
+            type="text"
+            value={locationAdd}
+            onChange={(event) => {
+              setLocationAdd(event.target.value);
+            }}
+          />
 
-        <label htmlFor="willDeliver" id="willDeliver">
-          Willing to deliver?
-          <input type="checkbox" id="willDeliver" onChange={handleCB} />
-        </label>
+          <label htmlFor="willDeliver" id="willDeliver">
+            Willing to deliver?
+            <input type="checkbox" id="willDeliver" onChange={handleCB} />
+          </label>
         </div>
-        <button type="submit" className="createButton">CREATE</button>
+        <button type="submit" className="createButton">
+          CREATE
+        </button>
       </form>
     </>
   );

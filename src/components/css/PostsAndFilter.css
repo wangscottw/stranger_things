@@ -1,23 +1,25 @@
-.posts{
-    background-color: darkgrey;
-    border: 22px solid grey;
-    padding-left: 20px;
-    padding-bottom: 35px;
-    padding-right: 20px;
-    margin: 30px 20px 30px 20px;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+.posts {
+  background-color: darkgrey;
+  border: 22px solid grey;
+  padding-left: 20px;
+  padding-bottom: 35px;
+  padding-right: 20px;
+  margin: 30px 20px 30px 20px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-#eachPostTitle{
-    text-align: center;
-    text-decoration: underline;
-    font-size: 32px;
+#eachPostTitle {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 32px;
 }
 
-.editAndDelete{
-    border-top: 5px solid grey;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.editAndDelete {
+  border-top: 5px solid grey;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

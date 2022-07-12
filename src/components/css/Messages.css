@@ -1,32 +1,33 @@
-#messageInput{
-    margin-left: 7px;
-    width: 350px;
-    height: 25px;
-    padding-left: 10px;
-    padding-right: 10px;
+#messageInput {
+  margin-left: 7px;
+  width: 350px;
+  height: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-#formInput{
-    text-align: center;
+#formInput {
+  text-align: center;
 }
 
-#messageButton{
+#messageButton {
   align-items: center;
   background-clip: padding-box;
   background-color: rgb(172, 31, 31);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
   line-height: 1.25;
   margin: 0;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
   text-decoration: none;
   transition: all 250ms;
@@ -41,8 +42,10 @@
 
 #messageButton:hover,
 #messageButton:focus {
-    background-color: rgb(94, 12, 12);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: rgb(94, 12, 12);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 #messageButton:hover {
@@ -51,7 +54,6 @@
 
 #messageButton:active {
   background-color: rgb(172, 31, 31);
-  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
 }
-       
