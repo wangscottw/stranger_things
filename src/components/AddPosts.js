@@ -10,7 +10,7 @@ const AddPosts = () => {
   const [descAdd, setDescAdd] = useState("");
   const [priceAdd, setPriceAdd] = useState("");
   const [locationAdd, setLocationAdd] = useState("");
-  const [wTD, setWTD] = useState("unchecked");
+  const [wTD, setWTD] = useState(false);
   const navigate = useNavigate();
 
 // Handle submit is used to execute functions that pertain to adding a post. We have it to where you navigate to the posts page after you have made the add post API call (addPostings function)
@@ -24,16 +24,9 @@ const AddPosts = () => {
       descAdd,
       priceAdd,
       locationAdd,
-      wTD === "checked"
+      wTD
     );
     navigate("/posts");
-  }
-
-// handleCB is used as a helper function to determine if the checkbox (CB) is checked, and if it is, it determines whether or not the individual that is creating the post is willing to deliver or not.
-
-  function handleCB(event) {
-    event.preventDefault();
-    setWTD(wTD === "checked" ? "unchecked" : "checked");
   }
 
 // Returning divs that have variable text in them to display the information we are looking for.
@@ -51,6 +44,7 @@ const AddPosts = () => {
             onChange={(event) => {
               setTitleAdd(event.target.value);
             }}
+            required
           />
 
           <input
@@ -61,6 +55,7 @@ const AddPosts = () => {
             onChange={(event) => {
               setDescAdd(event.target.value);
             }}
+            required
           />
 
           <input
@@ -71,6 +66,7 @@ const AddPosts = () => {
             onChange={(event) => {
               setPriceAdd(event.target.value);
             }}
+            required
           />
 
           <input
@@ -81,11 +77,15 @@ const AddPosts = () => {
             onChange={(event) => {
               setLocationAdd(event.target.value);
             }}
+            required
           />
 
           <label htmlFor="willDeliver" id="willDeliver">
             Willing to deliver?
-            <input type="checkbox" id="willDeliver" onChange={handleCB} />
+            <input type="checkbox" id="willDeliver" onChange={() => {
+              setWTD(!wTD)
+            }}
+            />
           </label>
         </div>
         <button type="submit" className="createButton">

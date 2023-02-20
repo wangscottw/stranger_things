@@ -21,6 +21,23 @@ const Posts = ({
   const navigate = useNavigate();
   const [filteredData, setFilteredData] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    // retrievePosts()
+    //   .then((object) => {
+    //     setPosts(object.data.posts);
+    //     console.log("Here");
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
+    async function getPosts () {
+      const result = await retrievePosts();
+      setPosts(result.data.posts);
+    }
+    getPosts();
+  }, []);
+
   useEffect(() => {
     if (isLoggedIn) {
       setCurrentUser(localStorage.getItem("username"));
@@ -29,17 +46,7 @@ const Posts = ({
     }
   }, [isLoggedIn]);
 
-  useEffect(() => {
-    retrievePosts()
-      .then((object) => {
-        setPosts(object.data.posts);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-// This function will allow you to search through the posts and pull out only the posts that match your search criteria.
+  // This function will allow you to search through the posts and pull out only the posts that match your search criteria.
 
   function searchItems(searchValue) {
     if (searchValue.length) {
@@ -55,11 +62,13 @@ const Posts = ({
           : false;
       });
 
-      data.length > 0 ? setFilteredData(data) : setFilteredData(null);
+      data.length > 0 ? setFilteredData(data) : setFilteredData([]);
+    } else {
+      setFilteredData([]);
     }
   }
 
-// This useEffect will continue to update the display whenever you are adding (or subtracting) characters from the input box.
+  // This useEffect will continue to update the display whenever you are adding (or subtracting) characters from the input box.
 
   useEffect(() => {
     searchItems(searchPosts);
@@ -69,7 +78,7 @@ const Posts = ({
     navigate("/PostsAndFilter");
   }
 
-// Divs and inputs to layout a post section that lets you do specific things when you are a user, the owner of a post, or just simply view when you aren't logged in. This prop threads into the Posts and Filter component to allow for additional or less information to be displayed when you are searching for a specific post.
+  // Divs and inputs to layout a post section that lets you do specific things when you are a user, the owner of a post, or just simply view when you aren't logged in. This prop threads into the Posts and Filter component to allow for additional or less information to be displayed when you are searching for a specific post.
 
   return (
     <div className="postDiv">
@@ -91,35 +100,49 @@ const Posts = ({
               ADD POST
             </NavLink>
           </h1>
-        ) : null}
+        ) : (
+          <h1 id="navLink">
+            <NavLink to="/Login" id="addPostsLink">
+              ADD POST
+            </NavLink>
+          </h1>
+        )}
       </div>
-      {filteredData.length > 0
-        ? filteredData.map((element) => {
-            return (
-              <PostsAndFilter
-                key={element._id}
-                element={element}
-                isLoggedIn={isLoggedIn}
-                currentUser={currentUser}
-                handleIndividualPost={handleIndividualPost}
-                posts={filteredData}
-                setPosts={setFilteredData}
-              />
-            );
-          })
-        : posts.map((element) => {
-            return (
-              <PostsAndFilter
-                key={element._id}
-                element={element}
-                isLoggedIn={isLoggedIn}
-                currentUser={currentUser}
-                handleIndividualPost={handleIndividualPost}
-                posts={posts}
-                setPosts={setPosts}
-              />
-            );
-          })}
+      {filteredData.length > 0 && searchPosts.length > 0 ? (
+        filteredData.map((element) => {
+          return (
+            <PostsAndFilter
+              key={element._id}
+              element={element}
+              isLoggedIn={isLoggedIn}
+              currentUser={currentUser}
+              handleIndividualPost={handleIndividualPost}
+              posts={filteredData}
+              setPosts={setFilteredData}
+            />
+          );
+        })
+      ) : filteredData.length === 0 && searchPosts.length > 0 ? (
+        <div className="noPostsMatch">
+          <span className="noPostsMatchSpan">No Posts Match Your Search</span>
+        </div>
+      ) : posts.length ? (
+        posts.map((element) => {
+          return (
+            <PostsAndFilter
+              key={element._id}
+              element={element}
+              isLoggedIn={isLoggedIn}
+              currentUser={currentUser}
+              handleIndividualPost={handleIndividualPost}
+              posts={posts}
+              setPosts={setPosts}
+            />
+          );
+        })
+      ) : (
+        null
+      )}
     </div>
   );
 };

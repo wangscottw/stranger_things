@@ -37,12 +37,13 @@ const Profile = () => {
                 <div key={_id} className="profileMessages">
                   <div>
                     {messages.map(({ content, fromUser }) => {
+                      console.log(messages)
                       return (
                         <div className="toMessages">
                           <h3>From: {fromUser.username}</h3>
                           <h3>{content}</h3>
                           <h3>
-                            <NavLink to="/" className="navlink">
+                            <NavLink to={`/posts/${_id}`} className="navlink">
                               <b>(VIEW MY POST)</b> {title}
                             </NavLink>
                           </h3>
@@ -66,11 +67,10 @@ const Profile = () => {
                   <h3>(From Me)</h3>
                   <h3>{content}</h3>
                   <h3>
-                    {" "}
-                    <NavLink to="/" className="navlink">
-                      <b>(Message again)</b> {post.title}
-                    </NavLink>
-                  </h3>
+                            <NavLink to={`/posts/${post._id}`} className="navlink">
+                              <b>(MESSAGE AGAIN)</b> {post.title}
+                            </NavLink>
+                          </h3>
                 </div>
               );
             })

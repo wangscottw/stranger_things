@@ -35,3 +35,15 @@
 #addPostsLink {
   text-decoration: none;
 }
+
+.noPostsMatch {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  background-color: white;
+  border: none;
+}
+
+.noPostsMatchSpan {
+  width: 500px;
+}

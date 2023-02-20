@@ -25,6 +25,6 @@
 
 .navBarLinks:hover {
   padding: 7px;
-  border: none;
+  border: #203b47 3px solid;
   color: white;
 }

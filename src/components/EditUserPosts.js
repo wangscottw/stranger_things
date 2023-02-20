@@ -4,45 +4,39 @@ import "./css/EditUserPosts.css";
 
 // This component handles all of the editing of the posts. We set it up to where you could only see this component if you were logged in and looking at your own posts. Edits and updates the post real time without needing to refresh the page.
 
-const EditUserPosts = ({ element_id, posts, setPosts }) => {
-  const [titleAdd, setTitleAdd] = useState("");
-  const [descAdd, setDescAdd] = useState("");
-  const [priceAdd, setPriceAdd] = useState("");
-  const [locationAdd, setLocationAdd] = useState("");
-  const [wTD, setWTD] = useState("unchecked");
-
-// handleSubmit function for all of the information that needs to be sent to the API to be sent through the information filled out in the form/inputs.
+const EditUserPosts = ({ element, element_id, posts, setPosts }) => {
+  const [titleAdd, setTitleAdd] = useState(element.title);
+  const [descAdd, setDescAdd] = useState(element.description);
+  const [priceAdd, setPriceAdd] = useState(element.price);
+  const [locationAdd, setLocationAdd] = useState(element.location);
+  const [wTD, setWTD] = useState(false);
+  // handleSubmit function for all of the information that needs to be sent to the API to be sent through the information filled out in the form/inputs.
 
   async function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    const newPost = await editPosts(
-      token,
-      titleAdd,
-      descAdd,
-      priceAdd,
-      wTD === "checked",
-      locationAdd,
-      element_id
-    );
-    const newObj = posts.filter((postObj) => {
-      if (postObj._id === newPost.data.post._id) {
-        return false;
-      } else {
-        return true;
-      }
-    });
-    setPosts([newPost.data.post, ...newObj]);
+    if (confirm("Do you want to edit this post?\nIf so, please click OK.\nOtherwise click Cancel.") === true) {
+      const newPost = await editPosts(
+        token,
+        titleAdd,
+        descAdd,
+        priceAdd,
+        wTD,
+        locationAdd,
+        element_id
+      );
+      const newObj = posts.filter((postObj) => {
+        if (postObj._id === newPost.data.post._id) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+      setPosts([newPost.data.post, ...newObj]);
+    }
   }
 
-// Similar to how the AddPosts.js handleCB function worked, this just makes sure to update the verbiage on whether someone is willing to deliver based on whether the box is checked or not.
-
-  function handleChange(event) {
-    event.preventDefault();
-    setWTD(wTD === "checked" ? "unchecked" : "checked");
-  }
-
-// Returning all of the divs/inputs necessary to make a nice form for user to add a posting.
+  // Returning all of the divs/inputs necessary to make a nice form for user to add a posting.
 
   return (
     <>
@@ -53,6 +47,7 @@ const EditUserPosts = ({ element_id, posts, setPosts }) => {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="inputDiv">
+              Title
               <input
                 className="inputEdit"
                 id="Edit"
@@ -64,6 +59,7 @@ const EditUserPosts = ({ element_id, posts, setPosts }) => {
               />
             </div>
             <div className="inputDiv">
+              Description
               <input
                 className="inputEdit"
                 id="Description"
@@ -75,6 +71,7 @@ const EditUserPosts = ({ element_id, posts, setPosts }) => {
               />
             </div>
             <div className="inputDiv">
+              Price
               <input
                 className="inputEdit"
                 id="Price"
@@ -86,6 +83,7 @@ const EditUserPosts = ({ element_id, posts, setPosts }) => {
               />
             </div>
             <div className="inputDiv">
+              Location
               <input
                 className="inputEdit"
                 id="Location"
@@ -98,13 +96,15 @@ const EditUserPosts = ({ element_id, posts, setPosts }) => {
             </div>
             <div className="wtdCheckBox">
               <label htmlFor="willDeliver">
+                Willing to Deliver?
                 <input
                   id="willDeliver"
                   type="checkbox"
                   name="willDeliver"
-                  onChange={handleChange}
+                  onChange={() => {
+                    setWTD(!wTD);
+                  }}
                 />
-                Willing to Deliver?
               </label>
             </div>
             <button type="Submit" id="saveEdit">

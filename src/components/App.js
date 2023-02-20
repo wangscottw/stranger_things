@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import {
   Login,
@@ -11,6 +11,7 @@ import {
   AddPosts,
   EditUserPosts,
   DeleteUserPosts,
+  SinglePostView
 } from "./";
 
 import "./css/App.css";
@@ -24,6 +25,21 @@ const App = () => {
   const [searchPosts, setSearchPosts] = useState("");
   const [posts, setPosts] = useState([]);
 
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    const usernameReload = localStorage.getItem("username")
+    if (token) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+    if (usernameReload) {
+      setUsername(usernameReload)
+    } else {
+      setUsername("")
+    }
+  }, [])
 // Returning routes to get to thread the props down to different levels of our website.
 
   return (
@@ -78,6 +94,7 @@ const App = () => {
         <Route path="/AddPosts" element={<AddPosts />} />
         <Route path="/EditUserPosts" element={<EditUserPosts />} />
         <Route path="/DeleteUserPosts" element={<DeleteUserPosts />} />
+        <Route path="/posts/:id" element={<SinglePostView posts={posts} setPosts={setPosts} isLoggedIn={isLoggedIn} currentUser={username} />} />
       </Routes>
     </div>
   );
